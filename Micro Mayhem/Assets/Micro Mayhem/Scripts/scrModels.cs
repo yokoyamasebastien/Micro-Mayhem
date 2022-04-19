@@ -1,3 +1,17 @@
+// NAME: Sebastien Yokoyama
+// COURSE: CS 381.1001
+// ASSIGNMENT: Micro Mayhem
+// FILE NAME: scrModels.cs
+/* FILE DESCRIPTION: Contains code that handles player control settings. */
+
+/***************************************************************************************
+* Title: scrModels source code
+* Author: "Fuelled By Caffeine"
+* Date: 2021
+* Availability: https://www.youtube.com/playlist?list=PLW3-6V9UKVh2T0wIqYWC1qvuCk2LNSG5c
+*
+***************************************************************************************/
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
