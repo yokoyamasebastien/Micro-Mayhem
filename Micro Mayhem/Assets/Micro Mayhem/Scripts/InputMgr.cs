@@ -80,8 +80,8 @@ public class InputMgr : MonoBehaviour
         // Apply movement vector
         PlayerMgr.inst.characterController.Move(move * speed * Time.deltaTime);
 
-        // Jump; Mapped to SPACE
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Jump; Only jump if player is grounded
+        if (Input.GetKeyDown(KeyCode.Space) && Physics.Raycast(PlayerMgr.inst.playerBody.position, Vector3.down, PlayerMgr.inst.distToGround + 0.1f))
         {
             PlayerMgr.inst.velocity.y = Mathf.Sqrt(PlayerMgr.inst.jumpHeight * -2f * PlayerMgr.inst.gravity);
         }
