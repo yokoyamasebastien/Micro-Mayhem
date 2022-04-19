@@ -391,7 +391,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 386027263}
   characterController: {fileID: 386027264}
-  speed: 12
+  walkSpeed: 12
+  runSpeed: 40
   gravity: -9.81
   jumpHeight: 3
   velocity: {x: 0, y: 0, z: 0}

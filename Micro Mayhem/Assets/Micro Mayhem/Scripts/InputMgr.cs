@@ -13,8 +13,12 @@ public class InputMgr : MonoBehaviour
     }
 
     /*---------- Properties ----------*/
+    [Header("Mouse Properties")]
     public float mouseSensitivity = 100f;
     float xRotation = 0f;
+
+    [Header("Running")]
+    bool isRunning;
 
     /*---------- Methods ----------*/
     // Start is called before the first frame update
@@ -22,6 +26,9 @@ public class InputMgr : MonoBehaviour
     {
         // Hide cursor and Lock it to center of screen
         Cursor.lockState = CursorLockMode.Locked;
+
+        // Running is disabled by default
+        isRunning = false;
     }
 
     // Update is called once per frame
@@ -40,6 +47,16 @@ public class InputMgr : MonoBehaviour
         PlayerMgr.inst.playerBody.Rotate(Vector3.up * mouseX);
 
         /*----- Keyboard Input -----*/
+        // Hold LSHIFT to Run
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isRunning = true;
+        }
+        else
+        {
+            isRunning = false;
+        }
+
         // Movement along XZ-plane
         float x = Input.GetAxis("Horizontal");  // Left-Right Movement
         float z = Input.GetAxis("Vertical");    // Forwards-Backwards Movement
@@ -47,8 +64,21 @@ public class InputMgr : MonoBehaviour
         // Calculate vector for movement
         Vector3 move = PlayerMgr.inst.playerBody.transform.right * x + PlayerMgr.inst.playerBody.transform.forward * z;
 
+        // Set speed
+        float speed;
+
+        // Check if running
+        if (isRunning)
+        {
+            speed = PlayerMgr.inst.runSpeed;
+        }
+        else
+        {
+            speed = PlayerMgr.inst.walkSpeed;
+        }
+
         // Apply movement vector
-        PlayerMgr.inst.characterController.Move(move * PlayerMgr.inst.speed * Time.deltaTime);
+        PlayerMgr.inst.characterController.Move(move * speed * Time.deltaTime);
 
         // Jump; Mapped to SPACE
         if (Input.GetKeyDown(KeyCode.Space))

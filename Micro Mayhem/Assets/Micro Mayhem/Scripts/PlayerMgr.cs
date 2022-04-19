@@ -13,10 +13,13 @@ public class PlayerMgr : MonoBehaviour
     }
 
     /*---------- Properties ----------*/
+    [Header("Physical Properties")]
     public Transform playerBody;
     public CharacterController characterController;
 
-    public float speed = 12f;
+    [Header("Movement")]
+    public float walkSpeed = 12f;
+    public float runSpeed = 20f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
 
