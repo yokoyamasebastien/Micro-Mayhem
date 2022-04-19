@@ -1,3 +1,10 @@
+// AUTHOR: Sebastien Yokoyama
+// EMAIL: syokoyama2001@nevada.unr.edu
+// COURSE: CS 381.1001
+// ASSIGNMENT: Semester Project
+// FILE NAME: InputMgr.cs
+/* FILE DESCRIPTION: Manages the user's input and executes different functions depending on the received input. */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,7 +41,7 @@ public class InputMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*----- Mouse Input -----*/
+        /*----- Mouse Input for Looking Around -----*/
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;    // Horizontal mouse movement
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;    // Vertical mouse movement
 
@@ -46,7 +53,8 @@ public class InputMgr : MonoBehaviour
         CameraMgr.inst.playerCam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         PlayerMgr.inst.playerBody.Rotate(Vector3.up * mouseX);
 
-        /*----- Keyboard Input -----*/
+
+        /*----- Keyboard Input for Movement -----*/
         // Hold LSHIFT to Run
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -84,6 +92,14 @@ public class InputMgr : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && Physics.Raycast(PlayerMgr.inst.playerBody.position, Vector3.down, PlayerMgr.inst.distToGround + 0.1f))
         {
             PlayerMgr.inst.velocity.y = Mathf.Sqrt(PlayerMgr.inst.jumpHeight * -2f * PlayerMgr.inst.gravity);
+        }
+
+
+        /*----- Keyboard Input for Various -----*/
+        // Quit when ESC is pressed
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 }

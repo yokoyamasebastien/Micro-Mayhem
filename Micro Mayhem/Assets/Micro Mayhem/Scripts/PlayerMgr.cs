@@ -1,3 +1,10 @@
+// AUTHOR: Sebastien Yokoyama
+// EMAIL: syokoyama2001@nevada.unr.edu
+// COURSE: CS 381.1001
+// ASSIGNMENT: Semester Project
+// FILE NAME: PlayerMgr.cs
+/* FILE DESCRIPTION: Manages attributes and properties that are associated with the player. */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +20,7 @@ public class PlayerMgr : MonoBehaviour
     }
 
     /*---------- Properties ----------*/
-    [Header("Physical Properties")]
+    [Header("Physics-Related Properties")]
     public Transform playerBody;
     public CharacterController characterController;
     public CapsuleCollider playerCollider;
@@ -28,10 +35,16 @@ public class PlayerMgr : MonoBehaviour
 
     public Vector3 velocity;
 
+    [Header("Player Attributes")]
+    public int health;
+    public int armor;
+
+    /*---------- Methods ----------*/
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = 100;
+        armor = 0;
     }
 
     // Update is called once per frame
