@@ -4,5 +4,15 @@ This project is an FPS Game known as 'Micro Mayhem'.
 
 It is built in Unity 2020.3.30f1, and uses the Unity Input System Version 1.3.0 and the Unity ProBuilder Version 4.5.2 packages.
 
+***NOTE***
+In the Publishing Settings,
+Enable Exceptions: None
+WebAssembly Arithmetic Exceptions: Throw
+Compression Format: Gzip
+Name Files As Hashes: Unchecked
+Data Caching: Checked
+Debug Symbols: Unchecked
+Decompression Fallback: Checked
+
 Run:
 https://yokoyamasebastien.github.io/Micro-Mayhem/Micro%20Mayhem/Builds/index.html
