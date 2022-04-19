@@ -6,12 +6,12 @@ It is built in Unity 2020.3.30f1, and uses the Unity Input System Version 1.3.0 
 
 ***NOTE***
 In the Publishing Settings,
-Enable Exceptions: None
-WebAssembly Arithmetic Exceptions: Throw
-Compression Format: Gzip
-Name Files As Hashes: Unchecked
-Data Caching: Checked
-Debug Symbols: Unchecked
+Enable Exceptions: None,
+WebAssembly Arithmetic Exceptions: Throw,
+Compression Format: Gzip,
+Name Files As Hashes: Unchecked,
+Data Caching: Checked,
+Debug Symbols: Unchecked,
 Decompression Fallback: Checked
 
 Run:
