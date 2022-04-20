@@ -28,10 +28,11 @@ public class AudioMgr : MonoBehaviour
 
     public AudioSource backgroundSource;
 
-    [Header("Footstep")]
+    [Header("Movement Audio")]
     public List<AudioClip> footsteps;
+    public AudioClip jump;
 
-    public AudioSource footstep;
+    public AudioSource moveSource;
     public float stepTimer;
 
     /*---------- Methods ----------*/
@@ -71,10 +72,15 @@ public class AudioMgr : MonoBehaviour
     public void PlayFootstep()
     {
         int index = Random.Range(0, (footsteps.Count - 1));
-
-        footstep.clip = footsteps[index];
-        footstep.Play();
+        moveSource.clip = footsteps[index];
+        moveSource.Play();
 
         stepTimer = 1f;
+    }
+
+    public void PlayJump()
+    {
+        moveSource.clip = jump;
+        moveSource.Play();
     }
 }

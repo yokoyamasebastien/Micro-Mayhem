@@ -2088,8 +2088,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 05cc4b7792f6a954b9edb71e0b5aa1ee, type: 3}
   - {fileID: 8300000, guid: 05b697679fd2a8d4e925cd269121d0b9, type: 3}
   - {fileID: 8300000, guid: 0b0331146ac482942818f47e22f76836, type: 3}
+  jump: {fileID: 8300000, guid: 63401ed592cd74346a2316125ee3f82b, type: 3}
   footstep: {fileID: 1868830511}
-  footstepCooldown: 0
+  stepTimer: 0
 --- !u!1 &1811717812
 GameObject:
   m_ObjectHideFlags: 0
