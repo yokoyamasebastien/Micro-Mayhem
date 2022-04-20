@@ -27,10 +27,14 @@ public class UIMgr : MonoBehaviour
     public TextMeshProUGUI playerArmor;
     public Image crosshair;
 
+    public TextMeshProUGUI timer;
+    private float time;
+
     /*---------- Methods ----------*/
     // Start is called before the first frame update
     void Start()
     {
+        /*----- Player Attributes -----*/
         // Set Text Size
         playerHealth.fontSize = 60;
         playerArmor.fontSize = 60;
@@ -50,12 +54,27 @@ public class UIMgr : MonoBehaviour
 
         // Get and Set values
         SetPlayerAttributes();
+
+        /*----- Timer -----*/
+        // Set Text Size
+        timer.fontSize = 60;
+
+        // Set color
+        timer.color = new Color32(0, 255, 0, 255);
+
+        // Set Text Outline thickness and color
+        timer.outlineWidth = 0.2f;
+        timer.outlineColor = Color.gray;
+
+        // Set Time value and text
+        SetTime();
     }
 
     // Update is called once per frame
     void Update()
     {
         SetPlayerAttributes();
+        SetTime();
     }
 
     /* SetPlayerAttributes Method
@@ -65,5 +84,35 @@ public class UIMgr : MonoBehaviour
     {
         playerHealth.text = PlayerMgr.inst.health.ToString();
         playerArmor.text = PlayerMgr.inst.armor.ToString();
+    }
+
+    void SetTime()
+    {
+        float time = Time.timeSinceLevelLoad;
+
+        int minutes = Mathf.FloorToInt(time / 60f);
+        int seconds = Mathf.FloorToInt(time - minutes * 60);
+
+        string min, sec;
+
+        if (minutes < 10)
+        {
+            min = "0" + minutes.ToString();
+        }
+        else
+        {
+            min = minutes.ToString();
+        }
+
+        if (seconds < 10)
+        {
+            sec = "0" + seconds.ToString();
+        }
+        else
+        {
+            sec = seconds.ToString();
+        }
+
+        timer.text = min + ":" + sec;
     }
 }
