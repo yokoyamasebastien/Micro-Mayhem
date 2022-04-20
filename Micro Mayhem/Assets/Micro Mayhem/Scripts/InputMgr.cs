@@ -88,6 +88,12 @@ public class InputMgr : MonoBehaviour
         // Apply movement vector
         PlayerMgr.inst.characterController.Move(move * speed * Time.deltaTime);
 
+        // Play Footstep if grounded & when moving
+        if (Physics.Raycast(PlayerMgr.inst.playerBody.position, Vector3.down, PlayerMgr.inst.distToGround + 0.1f) && (move != Vector3.zero))
+        {
+            AudioMgr.inst.PlayFootstep();
+        }
+
         // Jump; Only jump if player is grounded
         if (Input.GetKeyDown(KeyCode.Space) && Physics.Raycast(PlayerMgr.inst.playerBody.position, Vector3.down, PlayerMgr.inst.distToGround + 0.1f))
         {
