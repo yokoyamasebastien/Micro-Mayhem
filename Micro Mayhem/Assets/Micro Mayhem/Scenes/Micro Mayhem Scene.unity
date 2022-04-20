@@ -1775,7 +1775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433dd4af8e988a847801cec340c364d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 1000
+  mouseSensitivity: 500
 --- !u!1 &1595281094
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,7 +2089,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 05b697679fd2a8d4e925cd269121d0b9, type: 3}
   - {fileID: 8300000, guid: 0b0331146ac482942818f47e22f76836, type: 3}
   jump: {fileID: 8300000, guid: 63401ed592cd74346a2316125ee3f82b, type: 3}
-  footstep: {fileID: 1868830511}
+  moveSource: {fileID: 1868830511}
   stepTimer: 0
 --- !u!1 &1811717812
 GameObject:
@@ -2197,7 +2197,7 @@ GameObject:
   - component: {fileID: 1868830510}
   - component: {fileID: 1868830511}
   m_Layer: 0
-  m_Name: Footstep Source
+  m_Name: Move Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
