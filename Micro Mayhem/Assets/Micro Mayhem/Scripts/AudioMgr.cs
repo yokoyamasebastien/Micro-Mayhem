@@ -34,6 +34,7 @@ public class AudioMgr : MonoBehaviour
 
     public AudioSource moveSource;
     public float stepTimer;
+    public float hitTimer;
 
     /*---------- Methods ----------*/
     // Start is called before the first frame update

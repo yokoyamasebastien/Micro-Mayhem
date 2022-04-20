@@ -27,6 +27,8 @@ public class UIMgr : MonoBehaviour
     public TextMeshProUGUI playerArmor;
     public Image crosshair;
 
+    public TextMeshProUGUI enemyHealth;
+
     /*---------- Methods ----------*/
     // Start is called before the first frame update
     void Start()
@@ -35,9 +37,9 @@ public class UIMgr : MonoBehaviour
         playerHealth.fontSize = 60;
         playerArmor.fontSize = 60;
 
-        // Set Text Color
-        // Player Health Color is Red
-        playerHealth.color = new Color32(255, 0, 0, 255);
+    // Set Text Color
+    // Player Health Color is Red
+    playerHealth.color = new Color32(255, 0, 0, 255);
         // Player Armor Color is Blue
         playerArmor.color = new Color32(0, 255, 255, 255);
 
@@ -65,5 +67,11 @@ public class UIMgr : MonoBehaviour
     {
         playerHealth.text = PlayerMgr.inst.health.ToString();
         playerArmor.text = PlayerMgr.inst.armor.ToString();
+    }
+
+    // Set enemy health
+    void SetEnemyAttributes()
+    {
+     
     }
 }
