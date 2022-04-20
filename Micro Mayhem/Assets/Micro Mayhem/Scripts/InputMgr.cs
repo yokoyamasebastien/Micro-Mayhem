@@ -89,7 +89,10 @@ public class InputMgr : MonoBehaviour
         PlayerMgr.inst.characterController.Move(move * speed * Time.deltaTime);
 
         // Play Footstep if grounded & when moving
-        if (Physics.Raycast(PlayerMgr.inst.playerBody.position, Vector3.down, PlayerMgr.inst.distToGround + 0.1f) && (move != Vector3.zero))
+        AudioMgr.inst.stepTimer -= Time.deltaTime * speed * 0.2f;
+
+        if (Physics.Raycast(PlayerMgr.inst.playerBody.position, Vector3.down, PlayerMgr.inst.distToGround + 0.1f) && 
+            (move != Vector3.zero) && (AudioMgr.inst.stepTimer <= 0))
         {
             AudioMgr.inst.PlayFootstep();
         }

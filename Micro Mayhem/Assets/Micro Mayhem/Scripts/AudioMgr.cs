@@ -32,7 +32,7 @@ public class AudioMgr : MonoBehaviour
     public List<AudioClip> footsteps;
 
     public AudioSource footstep;
-    public float footstepCooldown;
+    public float stepTimer;
 
     /*---------- Methods ----------*/
     // Start is called before the first frame update
@@ -41,6 +41,8 @@ public class AudioMgr : MonoBehaviour
         backgroundSource.volume = .2f;
         backgroundSource.clip = backgroundClips[currentBackgroundIndex];
         backgroundSource.Play();
+
+        stepTimer = 1f;
     }
 
     // Update is called once per frame
@@ -72,5 +74,7 @@ public class AudioMgr : MonoBehaviour
 
         footstep.clip = footsteps[index];
         footstep.Play();
+
+        stepTimer = 1f;
     }
 }
