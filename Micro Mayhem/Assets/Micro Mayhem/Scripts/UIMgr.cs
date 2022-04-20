@@ -82,8 +82,8 @@ public class UIMgr : MonoBehaviour
     */
     void SetPlayerAttributes()
     {
-        playerHealth.text = PlayerMgr.inst.health.ToString();
-        playerArmor.text = PlayerMgr.inst.armor.ToString();
+        playerHealth.text = "HP: " + PlayerMgr.inst.health.ToString();
+        playerArmor.text = "AP: " + PlayerMgr.inst.armor.ToString();
     }
 
     void SetTime()
