@@ -40,6 +40,9 @@ public class PlayerMgr : MonoBehaviour
     public int health;
     public int armor;
 
+    [Header("Player Inventory")]
+    public Gun gun;
+
     /*---------- Methods ----------*/
     // Start is called before the first frame update
     void Start()

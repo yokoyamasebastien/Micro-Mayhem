@@ -41,7 +41,7 @@ public class InputMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*----- Mouse Input for Looking Around -----*/
+        /*----- Mouse Movement Input for Looking Around -----*/
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;    // Horizontal mouse movement
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;    // Vertical mouse movement
 
@@ -53,6 +53,11 @@ public class InputMgr : MonoBehaviour
         CameraMgr.inst.playerCam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         PlayerMgr.inst.playerBody.Rotate(Vector3.up * mouseX);
 
+        /*----- Mouse Button Input for Shooting -----*/
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            PlayerMgr.inst.gun.Shoot();
+        }
 
         /*----- Keyboard Input for Movement -----*/
         // Hold LSHIFT to Run
