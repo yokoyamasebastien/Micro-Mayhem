@@ -5,6 +5,7 @@
 // FILE NAME: PlayerMgr.cs
 /* FILE DESCRIPTION: Manages attributes and properties that are associated with the player. */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,6 +41,11 @@ public class PlayerMgr : MonoBehaviour
     public int health;
     public int armor;
 
+    /* We must put a cap on the player's health and armor
+     * Some powerups can increase the cap. */
+    private int maxHealth;
+    private int maxArmor;
+
     [Header("Player Inventory")]
     public Gun gun;
 
@@ -49,6 +55,9 @@ public class PlayerMgr : MonoBehaviour
     {
         health = 100;
         armor = 0;
+
+        maxHealth = 100;
+        maxArmor = 100;
     }
 
     // Update is called once per frame
@@ -70,6 +79,61 @@ public class PlayerMgr : MonoBehaviour
         if (PlayerMgr.inst.health <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
+    }
+
+    /* TakeDamage Method
+    Expects an int
+    Called when a player is supposed to receive damage.
+    The damage amount is subtracted from the player's health. */
+    public void TakeDamage(int damage)
+    {
+        // Calculate new armor amount, based on damage
+        int newArmor = Math.Max(0, (armor - ((2 * damage) / 5)));
+
+        // Calculate new damage amount based on damage value
+        int deltaHealth;
+
+        // If armor was 0, or armor goes down to 0 from initial value
+        if (newArmor == 0)
+        {
+            deltaHealth = damage - (2 * armor);
+        }
+        // If player still has armor
+        else
+        {
+            deltaHealth = damage / 5;
+        }
+        
+        armor = newArmor;
+        health -= deltaHealth;
+    }
+
+    /* Heal Method
+    Expects an int
+    Called when a player is supposed to heal
+    The heal amount is added to the player's health. */
+    public void Heal(int heal)
+    {
+        health += heal;
+
+        if (health >= maxHealth)
+        {
+            health = maxHealth;
+        }
+    }
+
+    /* AddArmor Method
+    Expects an int
+    Called when a player gains armor
+    The armor amount is added to the player's armor. */
+    public void AddArmor(int armorAmount)
+    {
+        armor += armorAmount;
+
+        if(armor >= maxArmor)
+        {
+            armor = maxArmor;
         }
     }
 }
