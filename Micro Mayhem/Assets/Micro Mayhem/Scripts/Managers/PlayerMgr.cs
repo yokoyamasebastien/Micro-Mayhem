@@ -53,8 +53,8 @@ public class PlayerMgr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 100;
-        armor = 0;
+        //health = 100;
+        //armor = 0;
 
         maxHealth = 100;
         maxArmor = 100;
