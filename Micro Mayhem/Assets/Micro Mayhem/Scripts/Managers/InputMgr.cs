@@ -111,6 +111,5 @@ public class InputMgr : MonoBehaviour
 
 
         /*----- Keyboard Input for Various -----*/
-        
     }
 }

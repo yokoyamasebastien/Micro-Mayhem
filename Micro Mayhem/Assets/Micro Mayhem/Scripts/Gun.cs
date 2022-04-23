@@ -26,11 +26,11 @@ public class Gun : MonoBehaviour
             Debug.Log(hit.transform.name);
 
             /*----- Apply Damage to Enemy if hit -----*/
-            //Enemy enemy = hit.transform.GetComponent<Enemy>();
-            //if (enemy != null)
-            //{
-            //    enemy.TakeDamage(damage);
-            //}
+            Enemy enemy = hit.transform.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
         }
     }
 }

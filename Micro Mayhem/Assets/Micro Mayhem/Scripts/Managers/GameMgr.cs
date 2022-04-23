@@ -20,20 +20,27 @@ public class GameMgr : MonoBehaviour
 
 
     /*---------- Properties ----------*/
-    public int waveNumber;
+    [Header("Game Attributes")]
+    public int waveNumber = 1;
 
 
     /*---------- Methods ----------*/
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // If all enemies are dead, go to next wave
+        if (AIMgr.inst.enemies.Count == 0)
+        {
+            waveNumber++;
+
+            // Spawn next wave of enemies
+        }
     }
 
     /* EndGame Method

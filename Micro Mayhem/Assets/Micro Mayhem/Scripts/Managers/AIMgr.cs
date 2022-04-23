@@ -21,7 +21,7 @@ public class AIMgr : MonoBehaviour
 
 
     /*---------- Properties ----------*/
-    private List<Enemy> enemies;
+    public List<Enemy> enemies;
 
 
     /*---------- Methods ----------*/
@@ -34,6 +34,17 @@ public class AIMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Check if any enemies died and remove them
+        enemies.Remove(enemies.Find(e => e.isDead == true));
+    }
+
+    /* SpawnEnemies Method
+     Spawns enemies in a random area near the player. */
+    void SpawnEnemies()
+    {
+        float minDist = 30; // Minimum distance enemies must spawn from player
+        float maxDist = 100;    // Maximum distance enemies can spawn from player
+
+
     }
 }

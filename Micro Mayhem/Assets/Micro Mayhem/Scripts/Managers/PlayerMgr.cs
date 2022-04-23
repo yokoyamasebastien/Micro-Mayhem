@@ -23,6 +23,7 @@ public class PlayerMgr : MonoBehaviour
 
     /*---------- Properties ----------*/
     [Header("Physics-Related Properties")]
+    public GameObject player;
     public Transform playerBody;
     public CharacterController characterController;
     public CapsuleCollider playerCollider;
