@@ -79,6 +79,9 @@ public class PlayerMgr : MonoBehaviour
         if (PlayerMgr.inst.health <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+
+            // GameMgr EndGame Method to replace above code
+            GameMgr.inst.EndGame();
         }
     }
 
@@ -102,7 +105,7 @@ public class PlayerMgr : MonoBehaviour
         // If player still has armor
         else
         {
-            deltaHealth = damage / 5;
+            deltaHealth = damage / 4;
         }
         
         armor = newArmor;

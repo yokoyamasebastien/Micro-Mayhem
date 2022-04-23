@@ -50,7 +50,8 @@ public class AIRanged : MonoBehaviour
                 if (hit.collider.tag == "Player")
                 {
                     Debug.DrawLine(transform.position, hit.point, Color.red);
-                    PlayerMgr.inst.health -= 10;
+                    //PlayerMgr.inst.health -= 10;
+                    PlayerMgr.inst.TakeDamage(10);
                     Debug.Log("Ranged Hit");
                     AudioMgr.inst.hitTimer = 1f;
                 }

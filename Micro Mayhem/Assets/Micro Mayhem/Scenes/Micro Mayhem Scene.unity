@@ -2181,9 +2181,9 @@ MonoBehaviour:
   characterController: {fileID: 386027264}
   playerCollider: {fileID: 386027265}
   walkSpeed: 12
-  runSpeed: 40
+  runSpeed: 20
   gravity: -9.81
-  jumpHeight: 3
+  jumpHeight: 1.5
   distToGround: 1
   velocity: {x: 0, y: 0, z: 0}
   health: 100

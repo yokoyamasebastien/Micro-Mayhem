@@ -43,7 +43,8 @@ public class AIMelee : MonoBehaviour
 
         if (AudioMgr.inst.hitTimer <= 0)
         {
-            PlayerMgr.inst.health -= 20;
+            //PlayerMgr.inst.health -= 20;
+            PlayerMgr.inst.TakeDamage(20);
             Debug.Log("Melee Hit");
             AudioMgr.inst.hitTimer = 1f;
         }

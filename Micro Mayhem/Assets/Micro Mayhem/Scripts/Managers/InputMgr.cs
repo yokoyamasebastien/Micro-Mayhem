@@ -111,10 +111,6 @@ public class InputMgr : MonoBehaviour
 
 
         /*----- Keyboard Input for Various -----*/
-        // Quit when ESC is pressed
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
+        
     }
 }
