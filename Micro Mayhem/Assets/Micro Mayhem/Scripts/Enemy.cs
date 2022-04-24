@@ -22,6 +22,7 @@ public abstract class Enemy : MonoBehaviour
 
     public int health;
     public float speed;
+    public int listIndex;
 
     [Header("Attack Attributes")]
     public int damage;
@@ -72,7 +73,6 @@ public abstract class Enemy : MonoBehaviour
     void Die()
     {
         isDead = true;
-
         Destroy(gameObject);
     }
 }

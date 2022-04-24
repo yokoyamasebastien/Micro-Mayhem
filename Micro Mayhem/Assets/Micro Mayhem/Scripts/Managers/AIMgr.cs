@@ -19,6 +19,10 @@ public class AIMgr : MonoBehaviour
         inst = this;
     }
 
+    /*------------Prefabs-----------*/
+    public Enemy meleePrefab;
+    public Enemy rangedPrefab;
+
 
     /*---------- Properties ----------*/
     public List<Enemy> enemies;
@@ -40,11 +44,24 @@ public class AIMgr : MonoBehaviour
 
     /* SpawnEnemies Method
      Spawns enemies in a random area near the player. */
-    void SpawnEnemies()
+    public void SpawnEnemies()
     {
         float minDist = 30; // Minimum distance enemies must spawn from player
         float maxDist = 100;    // Maximum distance enemies can spawn from player
 
+        for (int i = 0; i < 5; i++) //melee
+        {
+            //instantiate object in random range
+            var spawnPos = new Vector3(Random.Range(minDist, maxDist), 1, Random.Range(minDist, maxDist));
+            enemies.Add(Instantiate(meleePrefab, spawnPos, Quaternion.identity));
+        }
+
+        for (int i = 0; i < 5; i++) //ranged
+        {
+            //instantiate object in random range
+            var spawnPos = new Vector3(Random.Range(minDist, maxDist), 1, Random.Range(minDist, maxDist));
+            enemies.Add(Instantiate(rangedPrefab, spawnPos, Quaternion.identity));
+        }
 
     }
 }

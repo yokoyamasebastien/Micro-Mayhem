@@ -18,7 +18,6 @@ public class GameMgr : MonoBehaviour
         inst = this;
     }
 
-
     /*---------- Properties ----------*/
     [Header("Game Attributes")]
     public int waveNumber = 1;
@@ -38,8 +37,8 @@ public class GameMgr : MonoBehaviour
         if (AIMgr.inst.enemies.Count == 0)
         {
             waveNumber++;
-
             // Spawn next wave of enemies
+            AIMgr.inst.SpawnEnemies();
         }
     }
 
