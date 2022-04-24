@@ -27,6 +27,8 @@ public class Gun : MonoBehaviour
 
     [Header("Gun FX")]
     public Transform attackPoint;
+    //public GameObject muzzleFlash;
+    //public GameObject bulletHole;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +40,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(bulletsLeft <= 0) { Reload(); }
     }
 
     public void Shoot()
@@ -64,6 +66,10 @@ public class Gun : MonoBehaviour
                 enemy.TakeDamage(damage);
             }
         }
+
+        // Gun FX
+        //Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+        //Instantiate(bulletHole, hit.point, Quaternion.Euler(0, 180, 0));
 
         bulletsLeft--;
         bulletsShot--;

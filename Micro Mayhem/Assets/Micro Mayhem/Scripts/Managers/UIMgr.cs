@@ -23,10 +23,16 @@ public class UIMgr : MonoBehaviour
 
 
     /*---------- Properties ----------*/
+    [Header("Player UI")]
     public TextMeshProUGUI playerHealth;
     public TextMeshProUGUI playerArmor;
+
+    public TextMeshProUGUI playerAmmo;
+
+    [Header("Crosshair")]
     public Image crosshair;
 
+    [Header("Timer")]
     public TextMeshProUGUI timer;
     private float time;
 
@@ -38,12 +44,15 @@ public class UIMgr : MonoBehaviour
         // Set Text Size
         playerHealth.fontSize = 60;
         playerArmor.fontSize = 60;
+        playerAmmo.fontSize = 60;
 
         // Set Text Color
         // Player Health Color is Red
         playerHealth.color = new Color32(255, 0, 0, 255);
         // Player Armor Color is Blue
         playerArmor.color = new Color32(0, 255, 255, 255);
+        // Player Ammo Color is Orange
+        playerAmmo.color = new Color32(255, 150, 0, 255);
 
         // Set Text Outline thicknesss and color (black outline)
         playerHealth.outlineWidth = 0.2f;
@@ -51,6 +60,9 @@ public class UIMgr : MonoBehaviour
 
         playerArmor.outlineWidth = 0.2f;
         playerArmor.outlineColor = Color.gray;
+
+        playerAmmo.outlineWidth = 0.2f;
+        playerAmmo.outlineColor = Color.gray;
 
         // Get and Set values
         SetPlayerAttributes();
@@ -84,11 +96,13 @@ public class UIMgr : MonoBehaviour
     {
         playerHealth.text = "HP: " + PlayerMgr.inst.health.ToString();
         playerArmor.text = "AP: " + PlayerMgr.inst.armor.ToString();
+
+        playerAmmo.text = PlayerMgr.inst.gun.bulletsLeft.ToString() + "/" + PlayerMgr.inst.gun.magazineSize;
     }
 
     void SetTime()
     {
-        float time = Time.timeSinceLevelLoad;
+        time = Time.timeSinceLevelLoad;
 
         int minutes = Mathf.FloorToInt(time / 60f);
         int seconds = Mathf.FloorToInt(time - minutes * 60);
