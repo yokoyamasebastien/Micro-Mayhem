@@ -63,7 +63,6 @@ public abstract class Enemy : MonoBehaviour
     public virtual void TakeDamage(int damage)
     {
         health -= damage;
-
         // If health is <= 0, the enemy dies
         if(health <= 0) { Die(); }
     }

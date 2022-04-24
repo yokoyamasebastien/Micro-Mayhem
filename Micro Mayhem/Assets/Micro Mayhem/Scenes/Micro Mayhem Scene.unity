@@ -784,7 +784,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1494122435}
+    m_TransformParent: {fileID: 1340303415}
     m_Modifications:
     - target: {fileID: 7276764443248859404, guid: 2f5d313409ec64adc9647e645f3fd9f2,
         type: 3}
@@ -829,27 +829,27 @@ PrefabInstance:
     - target: {fileID: 7276764443248859405, guid: 2f5d313409ec64adc9647e645f3fd9f2,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7276764443248859405, guid: 2f5d313409ec64adc9647e645f3fd9f2,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7276764443248859405, guid: 2f5d313409ec64adc9647e645f3fd9f2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7276764443248859405, guid: 2f5d313409ec64adc9647e645f3fd9f2,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7276764443248859405, guid: 2f5d313409ec64adc9647e645f3fd9f2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 7276764443248859405, guid: 2f5d313409ec64adc9647e645f3fd9f2,
         type: 3}
@@ -2463,6 +2463,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266479270}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1340303414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1340303415}
+  m_Layer: 0
+  m_Name: Particles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1340303415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340303414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1927284634}
+  m_Father: {fileID: 1494122435}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1346655567
 GameObject:
   m_ObjectHideFlags: 0
@@ -2790,7 +2821,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1927284634}
+  - {fileID: 1340303415}
   m_Father: {fileID: 485706129}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2807,6 +2838,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveNumber: 1
+  healthPack: {fileID: 1041510189510284, guid: dda9a30259f7907418f21d3f5cf7bf15, type: 3}
+  armorPack: {fileID: 1844328801433658, guid: 9867510fa3e6d11479b56ff45cf8b2ca, type: 3}
   roundEndConfetti: {fileID: 1927284636}
 --- !u!1 &1538909535
 GameObject:
@@ -4511,6 +4544,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9094608956376953374, guid: 63849bc70fe04aa4999008dc19f7b8ab,
+        type: 3}
+      propertyPath: rigidBody
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63849bc70fe04aa4999008dc19f7b8ab, type: 3}
 --- !u!1001 &9106443375449661063
@@ -4525,6 +4563,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 386027262}
+    - target: {fileID: 9106443376435217291, guid: 1d56e96ccb9312e4b9801d1980bc595a,
+        type: 3}
+      propertyPath: rigidBody
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9106443376435217292, guid: 1d56e96ccb9312e4b9801d1980bc595a,
         type: 3}
       propertyPath: m_RootOrder

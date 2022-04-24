@@ -22,6 +22,11 @@ public class GameMgr : MonoBehaviour
     [Header("Game Attributes")]
     public int waveNumber = 1;
 
+    [Header("Consumable Assets")]
+    public GameObject healthPack;
+    public GameObject armorPack;
+    public List<GameObject> activeConsumables;
+
     /* Particle Effects */
     [Header("Particle Effects")]
     public ParticleSystem roundEndConfetti;
@@ -51,6 +56,7 @@ public class GameMgr : MonoBehaviour
      * shrinks player
      * reduces weapon damage
      * celebration confetti
+     * spawns consumables
      * spawns new enemies
      */
 
@@ -60,13 +66,39 @@ public class GameMgr : MonoBehaviour
         PlayerMgr.inst.ShrinkPlayer();
         PlayerMgr.inst.ReduceWeaponDamage();
         ConfettiSpawn();
+        SpawnConsumables();
         AIMgr.inst.SpawnEnemies();
     }
 
+    /*
+     * Confetti Spawn Method
+     * Round End Particle Celebration
+     */
     public void ConfettiSpawn()
     {
         roundEndConfetti.Play();
     }
+
+    /* Spawn Health method
+     * Spawns health pack worth 50 health
+     * Spawns armor pack worth 50 health
+     * NOTE: Spawns are currently on the two platforms, but should/could be randomized in the future
+     */
+    public void SpawnConsumables()
+    {
+        /* If consumables are not obtained from previous round
+         * destroy them and remove from list*/
+        foreach (var x in activeConsumables)
+        {
+            activeConsumables.Remove(x);
+            Destroy(x);
+        }
+
+        /* Create new consumables, add to list */
+        activeConsumables.Add(Instantiate(healthPack, new Vector3(2, 9, 33), Quaternion.identity));
+        activeConsumables.Add(Instantiate(armorPack, new Vector3(-39, 9, 14), Quaternion.identity));
+    }
+
 
     /* EndGame Method
      When the player dies, the game over screen is loaded. */
@@ -74,4 +106,5 @@ public class GameMgr : MonoBehaviour
     {
 
     }
+
 }
