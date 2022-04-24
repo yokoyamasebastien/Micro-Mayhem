@@ -41,7 +41,8 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(bulletsLeft <= 0) { Reload(); }
+        // If magazine is empty and not already reloading, reload weapon
+        if((bulletsLeft <= 0) && !reloading) { Reload(); }
     }
 
     public void Shoot()
