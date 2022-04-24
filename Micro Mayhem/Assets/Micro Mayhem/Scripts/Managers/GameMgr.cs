@@ -37,7 +37,8 @@ public class GameMgr : MonoBehaviour
         if (AIMgr.inst.enemies.Count == 0)
         {
             waveNumber++;
-            // Spawn next wave of enemies
+            PlayerMgr.inst.ShrinkPlayer();
+            PlayerMgr.inst.ReduceWeaponDamage();
             AIMgr.inst.SpawnEnemies();
         }
     }

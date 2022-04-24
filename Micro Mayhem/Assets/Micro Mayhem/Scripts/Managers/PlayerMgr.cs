@@ -37,6 +37,9 @@ public class PlayerMgr : MonoBehaviour
     public float distToGround = 1f; // Distance from center of player capsule to bottom of capsule, where ground makes contact
 
     public Vector3 velocity;
+    
+    float shrinkDelta = (float)0.25;
+    float scaleValue = 1;
 
     [Header("Player Attributes")]
     public int health;
@@ -139,5 +142,27 @@ public class PlayerMgr : MonoBehaviour
         {
             armor = maxArmor;
         }
+    }
+
+    /* ShrinkPlayer Method
+     * Lowers the players position by .5 after every round.
+     * Shrinks the player by a delta of .25 after every round.
+     * NOTE: After wave 3, gun dissapears due to it not shrinking with player. Will need to do the math on scaling the gun with the player.
+     */
+    public void ShrinkPlayer()
+    {
+        //Move player down in position so he is not floating/clipping through objects
+        player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - (shrinkDelta * 2), player.transform.position.z);
+        //Shrink player
+        scaleValue -= shrinkDelta;
+        player.transform.localScale = new Vector3(scaleValue, scaleValue, scaleValue);
+    }
+
+    /*ReduceWeaponDamage Method
+     * Reduces currently equipped weapon damage by 2
+     */
+    public void ReduceWeaponDamage()
+    {
+        gun.damage -= 2;
     }
 }

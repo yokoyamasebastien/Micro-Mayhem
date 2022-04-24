@@ -57,7 +57,7 @@ public class Gun : MonoBehaviour
         // Raycast
         RaycastHit hit;
         if (Physics.Raycast(CameraMgr.inst.playerCam.transform.position, direction, out hit, range)){
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
 
             /*----- Apply Damage to Enemy if hit -----*/
             Enemy enemy = hit.transform.GetComponent<Enemy>();
