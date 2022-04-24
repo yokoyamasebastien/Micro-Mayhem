@@ -28,6 +28,7 @@ public class Gun : MonoBehaviour
     [Header("Gun FX")]
     public Transform attackPoint;
     //public GameObject muzzleFlash;
+    public ParticleSystem muzzleFlash;
     //public GameObject bulletHole;
 
     // Start is called before the first frame update
@@ -53,6 +54,9 @@ public class Gun : MonoBehaviour
         float ySpread = Random.Range(-spread, spread);
 
         Vector3 direction = CameraMgr.inst.playerCam.transform.forward + new Vector3(xSpread, ySpread, 0);
+
+        //Play MuzzleFlash
+        muzzleFlash.Play();
 
         // Raycast
         RaycastHit hit;

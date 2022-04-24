@@ -22,6 +22,12 @@ public class GameMgr : MonoBehaviour
     [Header("Game Attributes")]
     public int waveNumber = 1;
 
+    /* Particle Effects */
+    [Header("Particle Effects")]
+    public ParticleSystem roundEndConfetti;
+
+
+
 
     /*---------- Methods ----------*/
     // Start is called before the first frame update
@@ -36,11 +42,30 @@ public class GameMgr : MonoBehaviour
         // If all enemies are dead, go to next wave
         if (AIMgr.inst.enemies.Count == 0)
         {
-            waveNumber++;
-            PlayerMgr.inst.ShrinkPlayer();
-            PlayerMgr.inst.ReduceWeaponDamage();
-            AIMgr.inst.SpawnEnemies();
+            RoundEnd();
         }
+    }
+
+    /*Round End Method
+     * Increases wave number
+     * shrinks player
+     * reduces weapon damage
+     * celebration confetti
+     * spawns new enemies
+     */
+
+    public void RoundEnd()
+    {
+        waveNumber++;
+        PlayerMgr.inst.ShrinkPlayer();
+        PlayerMgr.inst.ReduceWeaponDamage();
+        ConfettiSpawn();
+        AIMgr.inst.SpawnEnemies();
+    }
+
+    public void ConfettiSpawn()
+    {
+        roundEndConfetti.Play();
     }
 
     /* EndGame Method
