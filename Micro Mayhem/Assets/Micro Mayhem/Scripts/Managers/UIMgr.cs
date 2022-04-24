@@ -36,6 +36,9 @@ public class UIMgr : MonoBehaviour
     public TextMeshProUGUI timer;
     private float time;
 
+    [Header("Wave Number")]
+    public TextMeshProUGUI waveNumber;
+
     /*---------- Methods ----------*/
     // Start is called before the first frame update
     void Start()
@@ -87,6 +90,7 @@ public class UIMgr : MonoBehaviour
     {
         SetPlayerAttributes();
         SetTime();
+        SetWaveNumber();
     }
 
     /* SetPlayerAttributes Method
@@ -128,5 +132,10 @@ public class UIMgr : MonoBehaviour
         }
 
         timer.text = min + ":" + sec;
+    }
+
+    void SetWaveNumber()
+    {
+        waveNumber.text = "Wave: " + GameMgr.inst.waveNumber.ToString();
     }
 }
