@@ -54,8 +54,15 @@ public class InputMgr : MonoBehaviour
         PlayerMgr.inst.playerBody.Rotate(Vector3.up * mouseX);
 
         /*----- Mouse Button Input for Shooting -----*/
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        // Fully automatic
+        if (PlayerMgr.inst.gun.allowButtonHold) { PlayerMgr.inst.gun.shooting = Input.GetKey(KeyCode.Mouse0); }
+        // Semi automatic
+        else { PlayerMgr.inst.gun.shooting = Input.GetKeyDown(KeyCode.Mouse0); }
+
+        // Shoot
+        if(PlayerMgr.inst.gun.readyToShoot && PlayerMgr.inst.gun.shooting && !PlayerMgr.inst.gun.reloading && (PlayerMgr.inst.gun.bulletsLeft > 0))
         {
+            PlayerMgr.inst.gun.bulletsShot = PlayerMgr.inst.gun.bulletsPerTap;
             PlayerMgr.inst.gun.Shoot();
         }
 
@@ -111,5 +118,10 @@ public class InputMgr : MonoBehaviour
 
 
         /*----- Keyboard Input for Various -----*/
+        // Pressing R Reloads
+        if(Input.GetKeyDown(KeyCode.R) && (PlayerMgr.inst.gun.bulletsLeft < PlayerMgr.inst.gun.magazineSize) && !PlayerMgr.inst.gun.reloading)
+        {
+            PlayerMgr.inst.gun.Reload();
+        }
     }
 }
