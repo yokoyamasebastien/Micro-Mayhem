@@ -11,7 +11,6 @@ using UnityEngine;
 
 public class EnemyMelee : Enemy
 {
-
     /*---------- Methods ----------*/
     // Start is called before the first frame update
     new void Start()
@@ -23,14 +22,6 @@ public class EnemyMelee : Enemy
     void Update()
     {
         Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
-        transform.LookAt(player.transform);
-        Debug.DrawRay(transform.position, forward, Color.green);
-
-        //Move enemy if not close enough to player
-        if (Vector3.Distance(transform.position, player.transform.position) >= maxDistance)
-        {
-            Move();
-        }
 
         //If within mindist range, attack
         if (Vector3.Distance(transform.position, player.transform.position) <= maxDistance)

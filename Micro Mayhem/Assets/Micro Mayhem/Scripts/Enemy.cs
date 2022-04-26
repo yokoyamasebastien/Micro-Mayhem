@@ -10,12 +10,18 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
+    public float rayRange = 1.2f;
+    public float angle;
+    public Vector3 eulerAngleVelocity;
+    public Quaternion deltaRotation;
+
     /*---------- Properties ----------*/
     [Header("Physics-Related Properties")]
     public Transform enemyBody;
     public CapsuleCollider enemyCollider;
-
+    public Rigidbody enemyRB;
     public GameObject player;
+    //public  float enemyVelocity = enemyRB.velocity;
 
     [Header("Attributes")]
     public bool isDead = false;
@@ -34,21 +40,29 @@ public abstract class Enemy : MonoBehaviour
     {
         enemyBody = gameObject.GetComponent<Transform>();
         enemyCollider = gameObject.GetComponent<CapsuleCollider>();
+        enemyRB = gameObject.GetComponent<Rigidbody>();
+        enemyRB.freezeRotation = true;
 
         player = PlayerMgr.inst.player;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        Move();
     }
 
     /* Move Method
      Moves the enemy towards the player. */
     public virtual void Move()
     {
-        transform.position += transform.forward * speed * Time.deltaTime;
+        angle = Mathf.Atan2(player.transform.position.x, player.transform.position.z) * Mathf.Rad2Deg;
+        eulerAngleVelocity = new Vector3(0, angle, 0);
+        deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime);
+        enemyRB.MoveRotation(enemyRB.rotation * deltaRotation);
+
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+        enemyRB.MovePosition(transform.position + direction * 6f * Time.deltaTime);
     }
 
     /* Attack Method

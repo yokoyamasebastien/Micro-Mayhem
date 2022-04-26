@@ -46,8 +46,8 @@ public class AIMgr : MonoBehaviour
      Spawns enemies in a random area near the player. */
     public void SpawnEnemies()
     {
-        float minDist = 30; // Minimum distance enemies must spawn from player
-        float maxDist = 100;    // Maximum distance enemies can spawn from player
+        float minDist = 0; // Minimum distance enemies must spawn from player
+        float maxDist = 40;    // Maximum distance enemies can spawn from player
 
         for (int i = 0; i < 5; i++) //melee
         {
