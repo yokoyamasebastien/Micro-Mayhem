@@ -11,6 +11,7 @@ using UnityEngine;
 
 public class EnemyRanged : Enemy
 {
+    bool shouldRun = false;
     /*---------- Properties ----------*/
     [Header("Attack-Related Attributes")]
     RaycastHit hit;
@@ -27,12 +28,32 @@ public class EnemyRanged : Enemy
     void Update()
     {
         Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
+        /*
+        if (Vector3.Distance(transform.position, player.transform.position) > maxDistance)
+        {
+            shouldRun = true;
+        }
 
         // If within mindist range, attack
-        if (Vector3.Distance(transform.position, player.transform.position) <= maxDistance)
+        else if (Vector3.Distance(transform.position, player.transform.position) <= maxDistance)
         {
+            shouldRun = false;
             Attack();
         }
+        */
+        if (Vector3.Distance(transform.position, player.transform.position) <= maxDistance)
+        {
+            shouldRun = false;
+            Attack();
+        }
+        else
+            shouldRun = true;
+    }
+
+    void FixedUpdate()
+    {
+        if (shouldRun)
+            Move();
     }
 
     /* Attack Method
@@ -41,7 +62,7 @@ public class EnemyRanged : Enemy
     public new void Attack()
     {
         AudioMgr.inst.hitTimer -= Time.deltaTime * .9f;
-
+        enemyRB.velocity = Vector3.zero;
         if (AudioMgr.inst.hitTimer <= 0)
         {
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit))
@@ -55,5 +76,20 @@ public class EnemyRanged : Enemy
                 }
             }
         }
+    }
+
+    /* Move Method
+     * Moves rigid body towards player location
+     * calculates angle
+     */
+    public new void Move()
+    {
+        angle = Mathf.Atan2(player.transform.position.x, player.transform.position.z) * Mathf.Rad2Deg;
+        eulerAngleVelocity = new Vector3(0, angle, 0);
+        deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime);
+        enemyRB.MoveRotation(enemyRB.rotation * deltaRotation);
+
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+        enemyRB.MovePosition(transform.position + direction * 6f * Time.deltaTime);
     }
 }

@@ -21,7 +21,6 @@ public abstract class Enemy : MonoBehaviour
     public CapsuleCollider enemyCollider;
     public Rigidbody enemyRB;
     public GameObject player;
-    //public  float enemyVelocity = enemyRB.velocity;
 
     [Header("Attributes")]
     public bool isDead = false;
@@ -49,20 +48,14 @@ public abstract class Enemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Move();
+        //Move();
     }
 
     /* Move Method
      Moves the enemy towards the player. */
     public virtual void Move()
     {
-        angle = Mathf.Atan2(player.transform.position.x, player.transform.position.z) * Mathf.Rad2Deg;
-        eulerAngleVelocity = new Vector3(0, angle, 0);
-        deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime);
-        enemyRB.MoveRotation(enemyRB.rotation * deltaRotation);
-
-        Vector3 direction = (player.transform.position - transform.position).normalized;
-        enemyRB.MovePosition(transform.position + direction * 6f * Time.deltaTime);
+        
     }
 
     /* Attack Method

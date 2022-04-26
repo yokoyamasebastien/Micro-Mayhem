@@ -19,9 +19,22 @@ public class EnemyMelee : Enemy
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
+
+        //If within mindist range, attack
+        if (Vector3.Distance(transform.position, player.transform.position) <= maxDistance)
+        {
+            Attack();
+        }
+    }
+    */
+
+    void FixedUpdate()
+    {
+        //Constantly move melee enemy towards player
+        Move();
 
         //If within mindist range, attack
         if (Vector3.Distance(transform.position, player.transform.position) <= maxDistance)
@@ -45,5 +58,16 @@ public class EnemyMelee : Enemy
             Debug.Log("Melee Hit");
             AudioMgr.inst.hitTimer = 1f;
         }
+    }
+
+    public new void Move()
+    {
+        angle = Mathf.Atan2(player.transform.position.x, player.transform.position.z) * Mathf.Rad2Deg;
+        eulerAngleVelocity = new Vector3(0, angle, 0);
+        deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime);
+        enemyRB.MoveRotation(enemyRB.rotation * deltaRotation);
+
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+        enemyRB.MovePosition(transform.position + direction * 6f * Time.deltaTime);
     }
 }
