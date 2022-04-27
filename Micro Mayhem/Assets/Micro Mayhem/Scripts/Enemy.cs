@@ -23,8 +23,6 @@ public abstract class Enemy : MonoBehaviour
     public GameObject player;
 
     [Header("Attributes")]
-    public bool isDead = false;
-
     public int health;
     public float speed;
     public int listIndex;
@@ -43,6 +41,8 @@ public abstract class Enemy : MonoBehaviour
         enemyRB.freezeRotation = true;
 
         player = PlayerMgr.inst.player;
+
+        AIMgr.inst.enemyCount++;
     }
 
     // Update is called once per frame
@@ -78,7 +78,8 @@ public abstract class Enemy : MonoBehaviour
      Used when the enemy entity's health is <= 0. */
     void Die()
     {
-        isDead = true;
+        AIMgr.inst.enemyCount--;
+
         Destroy(gameObject);
     }
 }

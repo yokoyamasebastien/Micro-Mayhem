@@ -46,7 +46,7 @@ public class GameMgr : MonoBehaviour
     void Update()
     {
         // If all enemies are dead, go to next wave
-        if (AIMgr.inst.enemies.Count == 0)
+        if(AIMgr.inst.enemyCount == 0)
         {
             RoundEnd();
         }

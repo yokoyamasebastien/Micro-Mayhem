@@ -25,8 +25,7 @@ public class AIMgr : MonoBehaviour
 
 
     /*---------- Properties ----------*/
-    public List<Enemy> enemies;
-
+    public int enemyCount;
 
     /*---------- Methods ----------*/
     // Start is called before the first frame update
@@ -38,12 +37,7 @@ public class AIMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Find dead enemy, then remove it from enemies list
-        var deadEnemy = enemies.Find(e => e.isDead == true);
-        if(deadEnemy != null)
-        {
-            enemies.Remove(deadEnemy);
-        }
+        Debug.Log($"Enemies Count: {enemyCount}");
     }
 
     /* SpawnEnemies Method
@@ -57,14 +51,14 @@ public class AIMgr : MonoBehaviour
         {
             //instantiate object in random range
             var spawnPos = new Vector3(Random.Range(minDist, maxDist), 1, Random.Range(minDist, maxDist));
-            enemies.Add(Instantiate(meleePrefab, spawnPos, Quaternion.identity));
+            Instantiate(meleePrefab, spawnPos, Quaternion.identity);
         }
 
         for (int i = 0; i < 5; i++) //ranged
         {
             //instantiate object in random range
             var spawnPos = new Vector3(Random.Range(minDist, maxDist), 1, Random.Range(minDist, maxDist));
-            enemies.Add(Instantiate(rangedPrefab, spawnPos, Quaternion.identity));
+            Instantiate(rangedPrefab, spawnPos, Quaternion.identity);
         }
 
     }
