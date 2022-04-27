@@ -38,8 +38,12 @@ public class AIMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Check if any enemies died and remove them
-        enemies.Remove(enemies.Find(e => e.isDead == true));
+        // Find dead enemy, then remove it from enemies list
+        var deadEnemy = enemies.Find(e => e.isDead == true);
+        if(deadEnemy != null)
+        {
+            enemies.Remove(deadEnemy);
+        }
     }
 
     /* SpawnEnemies Method
