@@ -26,7 +26,8 @@ public class GameMgr : MonoBehaviour
     [Header("Consumable Assets")]
     public GameObject healthPack;
     public GameObject armorPack;
-    public List<GameObject> activeConsumables;
+
+    public int consumableCount;
 
     /* Particle Effects */
     [Header("Particle Effects")]
@@ -84,17 +85,13 @@ public class GameMgr : MonoBehaviour
      */
     public void SpawnConsumables()
     {
-        /* If consumables are not obtained from previous round
-         * destroy them and remove from list*/
-        foreach (var x in activeConsumables)
-        {
-            activeConsumables.Remove(x);
-            Destroy(x);
-        }
+        GameObject healthPackExist = GameObject.FindGameObjectWithTag("Health Pack");
+        GameObject armorPackExist = GameObject.FindGameObjectWithTag("Armor Pack");
 
-        /* Create new consumables, add to list */
-        activeConsumables.Add(Instantiate(healthPack, new Vector3(2, 9, 33), Quaternion.identity));
-        activeConsumables.Add(Instantiate(armorPack, new Vector3(-39, 9, 14), Quaternion.identity));
+        /* Create new consumables */
+        if (healthPackExist == null) { Instantiate(healthPack, new Vector3(2, 9, 33), Quaternion.identity); }
+
+        if (armorPackExist == null) { Instantiate(armorPack, new Vector3(-39, 9, 14), Quaternion.identity); }
     }
 
 
