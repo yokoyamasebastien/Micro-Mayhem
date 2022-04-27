@@ -37,7 +37,7 @@ public class AIMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($"Enemies Count: {enemyCount}");
+        
     }
 
     /* SpawnEnemies Method

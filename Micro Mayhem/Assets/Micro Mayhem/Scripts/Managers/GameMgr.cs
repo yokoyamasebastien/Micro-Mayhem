@@ -33,8 +33,6 @@ public class GameMgr : MonoBehaviour
     public ParticleSystem roundEndConfetti;
 
 
-
-
     /*---------- Methods ----------*/
     // Start is called before the first frame update
     void Start()
@@ -49,6 +47,7 @@ public class GameMgr : MonoBehaviour
         if(AIMgr.inst.enemyCount == 0)
         {
             RoundEnd();
+            AIMgr.inst.SpawnEnemies();
         }
     }
 
@@ -60,15 +59,13 @@ public class GameMgr : MonoBehaviour
      * spawns consumables
      * spawns new enemies
      */
-
     public void RoundEnd()
     {
-        waveNumber++;
-        PlayerMgr.inst.ShrinkPlayer();
-        PlayerMgr.inst.ReduceWeaponDamage();
-        ConfettiSpawn();
         SpawnConsumables();
-        AIMgr.inst.SpawnEnemies();
+        waveNumber++;
+        //PlayerMgr.inst.ShrinkPlayer();
+        //PlayerMgr.inst.ReduceWeaponDamage();
+        ConfettiSpawn();
     }
 
     /*
