@@ -92,6 +92,7 @@ public class PlayerMgr : MonoBehaviour
     The damage amount is subtracted from the player's health. */
     public void TakeDamage(int damage)
     {
+        AudioMgr.inst.PlayDamageSound();
         // Calculate new armor amount, based on damage
         int newArmor = Math.Max(0, (armor - ((2 * damage) / 5)));
 

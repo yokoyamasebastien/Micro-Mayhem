@@ -41,6 +41,11 @@ public class AudioMgr : MonoBehaviour
     public AudioClip pistolFire;
     public AudioClip pistolReload;
 
+    [Header("Player SFX")]
+    public AudioClip playerDamageEffect;
+
+   
+
     /*---------- Methods ----------*/
     // Start is called before the first frame update
     void Start()
@@ -101,5 +106,11 @@ public class AudioMgr : MonoBehaviour
         gunSource.clip = pistolReload;
         gunSource.Play();
     }
+
+    public void PlayDamageSound()
+    {
+        AudioSource.PlayClipAtPoint(playerDamageEffect, transform.position, 3f);
+    }
+
 
 }
