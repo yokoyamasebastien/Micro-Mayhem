@@ -58,6 +58,7 @@ public class Gun : MonoBehaviour
 
         //Play MuzzleFlash
         muzzleFlash.Play();
+        AudioMgr.inst.PlayPistolFire();
 
         // Raycast
         RaycastHit hit;
@@ -93,8 +94,13 @@ public class Gun : MonoBehaviour
 
     public void Reload()
     {
-        reloading = true;
-        Invoke("ReloadFinished", reloadTime);
+        if (!AudioMgr.inst.gunSource.isPlaying)
+        {
+            AudioMgr.inst.PlayPistolReload();
+            reloading = true;
+            Invoke("ReloadFinished", reloadTime);
+        }
+    
     }
 
     private void ReloadFinished()
@@ -102,4 +108,6 @@ public class Gun : MonoBehaviour
         bulletsLeft = magazineSize;
         reloading = false;
     }
+
+    
 }
