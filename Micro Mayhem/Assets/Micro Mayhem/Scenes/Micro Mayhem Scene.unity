@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45038086, g: 0.5003962, b: 0.575251, a: 1}
+  m_IndirectSpecularColor: {r: 0.45038038, g: 0.500396, b: 0.57525057, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -727,8 +727,8 @@ Transform:
   m_LocalPosition: {x: -0.23376179, y: 1.1569163, z: 0.44966704}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2024959158}
-  - {fileID: 1776179907}
+  - {fileID: 1816270706}
+  - {fileID: 1083542519}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2184,6 +2184,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &1083542519 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2901662045450584028, guid: 63849bc70fe04aa4999008dc19f7b8ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 4170001302709206440}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1122113200 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3464587013489555928, guid: 726c5e13e3c5f3144bf1cabe65f5a638,
@@ -3005,9 +3011,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 903ca46eb5767a04bbe279cdbc82c1e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleePrefab: {fileID: 3403771720917013588, guid: 1d56e96ccb9312e4b9801d1980bc595a,
+  meleePrefab: {fileID: 4900912904644818997, guid: 1d56e96ccb9312e4b9801d1980bc595a,
     type: 3}
-  rangedPrefab: {fileID: 4170001301270555910, guid: 63849bc70fe04aa4999008dc19f7b8ab,
+  rangedPrefab: {fileID: 2901662044678714801, guid: 63849bc70fe04aa4999008dc19f7b8ab,
     type: 3}
   enemyCount: 0
 --- !u!1 &1494122434
@@ -3674,12 +3680,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 471708011}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1776179907 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4170001302043731819, guid: 63849bc70fe04aa4999008dc19f7b8ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 4170001302709206440}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1796440122
 GameObject:
   m_ObjectHideFlags: 0
@@ -3885,6 +3885,7 @@ MonoBehaviour:
   gunSource: {fileID: 155043558}
   pistolFire: {fileID: 8300000, guid: 53d2238f4c4b2aa4f8e559c7af9e0126, type: 3}
   pistolReload: {fileID: 8300000, guid: 3ec13c8ae4ab29d4593ff56a2dda3885, type: 3}
+  playerDamageEffect: {fileID: 8300000, guid: a32634feb94966940853eacfdd63253d, type: 3}
 --- !u!1 &1801087814
 GameObject:
   m_ObjectHideFlags: 0
@@ -4080,6 +4081,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811717812}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1816270706 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4900912905560376506, guid: 1d56e96ccb9312e4b9801d1980bc595a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3403771720451196013}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1868830509
 GameObject:
   m_ObjectHideFlags: 0
@@ -4250,12 +4257,6 @@ Transform:
   m_Father: {fileID: 517401633}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2024959158 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3403771722475890907, guid: 1d56e96ccb9312e4b9801d1980bc595a,
-    type: 3}
-  m_PrefabInstance: {fileID: 3403771720451196013}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2048835000
 GameObject:
   m_ObjectHideFlags: 0
@@ -4888,6 +4889,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 278231583}
     m_Modifications:
+    - target: {fileID: 2901662045450584028, guid: 63849bc70fe04aa4999008dc19f7b8ab,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4170001301270555908, guid: 63849bc70fe04aa4999008dc19f7b8ab,
         type: 3}
       propertyPath: m_Name

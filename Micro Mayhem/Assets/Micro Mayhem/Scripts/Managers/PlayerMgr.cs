@@ -84,6 +84,10 @@ public class PlayerMgr : MonoBehaviour
             // GameMgr EndGame Method to switch back to main menu
             GameMgr.inst.EndGame();
         }
+
+
+        /*----- Take Damage Audio Timer -----*/
+        AudioMgr.inst.hitTimer -= Time.deltaTime * 0.2f;
     }
 
     /* TakeDamage Method
@@ -93,6 +97,7 @@ public class PlayerMgr : MonoBehaviour
     public void TakeDamage(int damage)
     {
         AudioMgr.inst.PlayDamageSound();
+
         // Calculate new armor amount, based on damage
         int newArmor = Math.Max(0, (armor - ((2 * damage) / 5)));
 

@@ -55,6 +55,7 @@ public class AudioMgr : MonoBehaviour
         backgroundSource.Play();
 
         stepTimer = 1f;
+        //hitTimer = 0;
     }
 
     // Update is called once per frame
@@ -109,7 +110,7 @@ public class AudioMgr : MonoBehaviour
 
     public void PlayDamageSound()
     {
-        AudioSource.PlayClipAtPoint(playerDamageEffect, transform.position, 3f);
+        AudioSource.PlayClipAtPoint(playerDamageEffect, PlayerMgr.inst.player.transform.position, 3f);
     }
 
 
