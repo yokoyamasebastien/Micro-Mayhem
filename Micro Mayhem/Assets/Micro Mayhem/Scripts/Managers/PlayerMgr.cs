@@ -37,7 +37,7 @@ public class PlayerMgr : MonoBehaviour
 
     public Vector3 velocity;
     
-    float shrinkDelta = (float)0.25;
+    float shrinkDelta = (float)0.06;
     float scaleValue = 1;
 
     [Header("Player Attributes")]
