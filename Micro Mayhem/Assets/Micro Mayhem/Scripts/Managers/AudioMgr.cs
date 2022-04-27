@@ -36,6 +36,11 @@ public class AudioMgr : MonoBehaviour
     public float stepTimer;
     public float hitTimer;
 
+    [Header("Gun Audio")]
+    public AudioSource gunSource;
+    public AudioClip pistolFire;
+    public AudioClip pistolReload;
+
     /*---------- Methods ----------*/
     // Start is called before the first frame update
     void Start()
@@ -83,5 +88,17 @@ public class AudioMgr : MonoBehaviour
     {
         moveSource.clip = jump;
         moveSource.Play();
+    }
+
+    public void PlayPistolFire()
+    {
+        gunSource.clip = pistolFire;
+        gunSource.Play();
+    }
+
+    public void PlayPistolReload()
+    {
+        gunSource.clip = pistolReload;
+        gunSource.Play();
     }
 }
