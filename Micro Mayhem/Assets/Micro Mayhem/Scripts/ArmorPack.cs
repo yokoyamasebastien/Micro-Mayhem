@@ -2,44 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArmorPack : MonoBehaviour
+public class ArmorPack : Consumable
 {
-    public bool rotate;
-    public float rotationSpeed;
-    //public ParticleSystem collectEffect;
+    /*---------- Properties ----------*/
+    int armor = 50;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (rotate)
-            transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime, Space.World);
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            Collect();
-        }
-    }
-
+    /*---------- Methods ----------*/
     /* Collect Method
      * Adds armor to player, destroys gameobject on consumption
      * Removes consumable from active consumables list
      */
-    public void Collect()
+    public override void Collect()
     {
+        PlayerMgr.inst.armor += armor;
+
         //if (collectSound)
         //AudioSource.PlayClipAtPoint(collectSound, transform.position
         //collectEffect.Play();
-        PlayerMgr.inst.armor += 50;
-        GameMgr.inst.activeConsumables.Remove(gameObject);
-        Destroy(gameObject);
+
+        base.Collect(); // Delete this object
     }
 }
