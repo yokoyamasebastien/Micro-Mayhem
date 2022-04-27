@@ -9,7 +9,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerMgr : MonoBehaviour
 {
@@ -82,9 +81,7 @@ public class PlayerMgr : MonoBehaviour
         // Check if health is 0, then game over.
         if (PlayerMgr.inst.health <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-
-            // GameMgr EndGame Method to replace above code
+            // GameMgr EndGame Method to switch back to main menu
             GameMgr.inst.EndGame();
         }
     }

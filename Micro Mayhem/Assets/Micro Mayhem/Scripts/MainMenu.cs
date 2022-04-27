@@ -8,7 +8,12 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     public void PlayStart ()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Micro Mayhem Scene");
+    }
+
+    public void Update()
+    {
+        
     }
 
     public void QuitGame()

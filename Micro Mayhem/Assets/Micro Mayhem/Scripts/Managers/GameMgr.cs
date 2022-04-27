@@ -7,6 +7,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameMgr : MonoBehaviour
 {
@@ -104,7 +105,8 @@ public class GameMgr : MonoBehaviour
      When the player dies, the game over screen is loaded. */
     public void EndGame()
     {
-
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("Main Menu");
     }
 
 }
