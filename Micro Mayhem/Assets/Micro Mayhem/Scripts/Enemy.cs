@@ -31,6 +31,10 @@ public abstract class Enemy : MonoBehaviour
     public int damage;
     public float maxDistance;   // Max Distance that enemy can attack player from
 
+    [Header("Enemy Audio")]
+    public AudioSource enemySource;
+    public AudioClip enemyDeath;
+
     /*---------- Methods ----------*/
     // Start is called before the first frame update
     public void Start()
@@ -38,6 +42,7 @@ public abstract class Enemy : MonoBehaviour
         enemyBody = gameObject.GetComponent<Transform>();
         enemyCollider = gameObject.GetComponent<CapsuleCollider>();
         enemyRB = gameObject.GetComponent<Rigidbody>();
+        //enemySource = gameObject.GetComponent<>
         enemyRB.freezeRotation = true;
 
         player = PlayerMgr.inst.player;
@@ -71,15 +76,24 @@ public abstract class Enemy : MonoBehaviour
     {
         health -= damage;
         // If health is <= 0, the enemy dies
-        if(health <= 0) { Die(); }
+        if(health <= 0) 
+        {
+            Die();
+        }
     }
 
     /* Die Method
      Used when the enemy entity's health is <= 0. */
     void Die()
     {
+        PlayEnemyDeath();
         AIMgr.inst.enemyCount--;
-
         Destroy(gameObject);
+    }
+
+    public void PlayEnemyDeath()
+    {
+        enemySource.clip = enemyDeath;
+        enemySource.Play();
     }
 }
