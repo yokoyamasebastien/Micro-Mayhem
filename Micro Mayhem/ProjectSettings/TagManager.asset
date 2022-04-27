@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Consumable
   - Ground
+  - Health Pack
+  - Armor Pack
   layers:
   - Default
   - TransparentFX

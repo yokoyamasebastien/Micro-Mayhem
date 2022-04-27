@@ -15,7 +15,7 @@ public abstract class Consumable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        GameMgr.inst.consumableCount++;
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public abstract class Consumable : MonoBehaviour
         //AudioSource.PlayClipAtPoint(collectSound, transform.position
         //collectEffect.Play();
 
-        GameMgr.inst.activeConsumables.Remove(gameObject);
+        GameMgr.inst.consumableCount--;
         Destroy(gameObject);
     }
 }

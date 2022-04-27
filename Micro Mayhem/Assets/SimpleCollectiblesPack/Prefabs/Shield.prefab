@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2129996370577873377}
   m_Layer: 2
   m_Name: Shield
-  m_TagString: Consumable
+  m_TagString: Armor Pack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
