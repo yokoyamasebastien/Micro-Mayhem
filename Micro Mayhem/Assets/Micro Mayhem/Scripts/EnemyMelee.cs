@@ -68,6 +68,6 @@ public class EnemyMelee : Enemy
         enemyRB.MoveRotation(enemyRB.rotation * deltaRotation);
 
         Vector3 direction = (player.transform.position - transform.position).normalized;
-        enemyRB.MovePosition(transform.position + direction * 6f * Time.deltaTime);
+        enemyRB.MovePosition(transform.position + direction * speed * Time.deltaTime);
     }
 }
