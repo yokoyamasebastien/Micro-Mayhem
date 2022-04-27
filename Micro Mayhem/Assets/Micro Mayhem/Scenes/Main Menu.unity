@@ -1091,9 +1091,12 @@ MonoBehaviour:
 
     JUMP = SPACE
 
+    RELOAD = R
+
     LOOK = MOUSE
 
-'
+    FIRE
+    = LEFT MOUSE'
 --- !u!222 &1201751238
 CanvasRenderer:
   m_ObjectHideFlags: 0
