@@ -32,7 +32,6 @@ public abstract class Enemy : MonoBehaviour
     public float maxDistance;   // Max Distance that enemy can attack player from
 
     [Header("Enemy Audio")]
-    public AudioSource enemySource;
     public AudioClip enemyDeath;
 
     /*---------- Methods ----------*/
@@ -93,7 +92,6 @@ public abstract class Enemy : MonoBehaviour
 
     public void PlayEnemyDeath()
     {
-        enemySource.clip = enemyDeath;
-        enemySource.Play();
+        AudioSource.PlayClipAtPoint(enemyDeath, transform.position, 5f);
     }
 }
