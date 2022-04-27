@@ -57,6 +57,7 @@ public class EnemyRanged : Enemy
         eulerAngleVelocity = new Vector3(0, angle, 0);
         deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime);
         enemyRB.MoveRotation(enemyRB.rotation * deltaRotation);
+        Debug.DrawLine(enemyRB.position, Vector3.forward, Color.yellow);
 
         //If within attack range, attack
         if (shouldRun)
@@ -68,7 +69,7 @@ public class EnemyRanged : Enemy
     Used to attack the player */
     public new void Attack()
     {
-        AudioMgr.inst.hitTimer -= Time.deltaTime * .9f;
+        AudioMgr.inst.hitTimer -= Time.deltaTime * .3f;
 
         if (AudioMgr.inst.hitTimer <= 0)
         {
