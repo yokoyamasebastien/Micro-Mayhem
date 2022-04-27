@@ -41,7 +41,7 @@ public class EnemyRanged : Enemy
             Attack();
         }
         */
-        if (Vector3.Distance(transform.position, player.transform.position) <= maxDistance)
+        if (Vector3.Distance(enemyRB.position, player.transform.position) <= maxDistance)
         {
             shouldRun = false;
             Attack();
@@ -52,6 +52,13 @@ public class EnemyRanged : Enemy
 
     void FixedUpdate()
     {
+        //Ranged unit constantly adjusts to look at player
+        angle = Mathf.Atan2(player.transform.position.x, player.transform.position.z) * Mathf.Rad2Deg;
+        eulerAngleVelocity = new Vector3(0, angle, 0);
+        deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime);
+        enemyRB.MoveRotation(enemyRB.rotation * deltaRotation);
+
+        //If within attack range, attack
         if (shouldRun)
             Move();
     }
@@ -62,10 +69,10 @@ public class EnemyRanged : Enemy
     public new void Attack()
     {
         AudioMgr.inst.hitTimer -= Time.deltaTime * .9f;
-        enemyRB.velocity = Vector3.zero;
+
         if (AudioMgr.inst.hitTimer <= 0)
         {
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit))
+            if (Physics.Raycast(enemyRB.position, transform.TransformDirection(Vector3.forward), out hit))
             {
                 if (hit.collider.tag == "Player")
                 {
