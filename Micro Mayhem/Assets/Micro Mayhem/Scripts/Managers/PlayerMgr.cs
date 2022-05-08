@@ -54,6 +54,12 @@ public class PlayerMgr : MonoBehaviour
     public GameObject weapon;
     public Gun gun;
     public int currentGunID = 0;
+    public bool isScoped = false;
+
+    [Header("Cameras")]
+    public GameObject weaponCamera;
+    public Camera playerCamera;
+    public float normalFOV;
 
     /*---------- Methods ----------*/
     // Start is called before the first frame update
@@ -66,6 +72,8 @@ public class PlayerMgr : MonoBehaviour
 
         maxHealth = 100;
         maxArmor = 100;
+
+        normalFOV = playerCamera.fieldOfView;
     }
 
     // Update is called once per frame

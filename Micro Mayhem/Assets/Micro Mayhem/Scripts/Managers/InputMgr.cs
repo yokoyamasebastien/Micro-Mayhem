@@ -27,6 +27,10 @@ public class InputMgr : MonoBehaviour
     [Header("Running")]
     bool isRunning;
 
+    [Header("Animator")]
+    public Animator animator;
+    public GameObject scopeOverlay;
+
     /*---------- Methods ----------*/
     // Start is called before the first frame update
     void Start()
@@ -154,6 +158,44 @@ public class InputMgr : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R) && (PlayerMgr.inst.gun.bulletsLeft < PlayerMgr.inst.gun.magazineSize) && !PlayerMgr.inst.gun.reloading)
         {
             PlayerMgr.inst.gun.Reload();
+        }
+
+        /*Check for gun aiming*/
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+           // int i = 0;
+            //foreach (Transform weaponObject in PlayerMgr.inst.weapon.transform)
+            //{
+                if (PlayerMgr.inst.currentGunID == 1)
+                {
+                    PlayerMgr.inst.isScoped = !PlayerMgr.inst.isScoped;
+                    animator.SetBool("isScoped", PlayerMgr.inst.isScoped);
+                if (PlayerMgr.inst.isScoped)
+                    StartCoroutine(OnScoped());
+                else
+                    OnUnScoped();
+                }
+                
+            //}
+        }
+        
+        /* MISC SNIPER AIMING FUNCTIONS */
+        IEnumerator OnScoped()
+        {
+            yield return new WaitForSeconds(.15f);
+            scopeOverlay.SetActive(true);
+            PlayerMgr.inst.weaponCamera.SetActive(false);
+            UIMgr.inst.crosshair.enabled = false;
+            PlayerMgr.inst.normalFOV = PlayerMgr.inst.playerCamera.fieldOfView;
+            PlayerMgr.inst.playerCamera.fieldOfView = 15f;
+        }
+
+        void OnUnScoped()
+        {
+            scopeOverlay.SetActive(false);
+            PlayerMgr.inst.weaponCamera.SetActive(true);
+            UIMgr.inst.crosshair.enabled = true;
+            PlayerMgr.inst.playerCamera.fieldOfView = PlayerMgr.inst.normalFOV;
         }
     }
 }

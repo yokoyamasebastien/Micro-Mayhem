@@ -47,13 +47,27 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
+        //Initially assigning spread so compiler doesnt yell at me. It gets reassigned below
+        float xSpread = spread;
+        float ySpread = spread;
         // Set weapon state
         readyToShoot = false;
 
-        // Calculate weapon spread
-        float xSpread = Random.Range(-spread, spread);
-        float ySpread = Random.Range(-spread, spread);
-
+        // Calculate sniper weapon spread if unscoped
+        if (PlayerMgr.inst.currentGunID == 1)
+        {
+            if (!PlayerMgr.inst.isScoped)
+            {
+                xSpread = 5 * Random.Range(-spread, spread);
+                ySpread = 5 * Random.Range(-spread, spread);
+            }
+        }
+        else
+        {   // Calculate default weapon spread
+            xSpread = Random.Range(-spread, spread);
+            ySpread = Random.Range(-spread, spread);
+        }
+        
         Vector3 direction = CameraMgr.inst.playerCam.transform.forward + new Vector3(xSpread, ySpread, 0);
 
         //Play MuzzleFlash
