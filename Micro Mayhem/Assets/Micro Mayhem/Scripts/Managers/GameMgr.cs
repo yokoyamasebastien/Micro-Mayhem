@@ -76,9 +76,6 @@ public class GameMgr : MonoBehaviour
         PlayerMgr.inst.ShrinkPlayer();
         //PlayerMgr.inst.ReduceWeaponDamage();
         ConfettiSpawn();
-
-        if (waveNumber == 2 || waveNumber == 4)
-            SpawnWeaponUpgrade();
     }
 
     /*
@@ -114,10 +111,4 @@ public class GameMgr : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("Main Menu");
     }
-
-    public void SpawnWeaponUpgrade()
-    {
-        Instantiate(weaponUpgrade, new Vector3(-23, 1, 22), Quaternion.identity);
-    }
-
 }
