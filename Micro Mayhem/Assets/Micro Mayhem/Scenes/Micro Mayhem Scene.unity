@@ -245,6 +245,7 @@ GameObject:
   - component: {fileID: 53196746}
   - component: {fileID: 53196745}
   - component: {fileID: 53196744}
+  - component: {fileID: 53196747}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -328,6 +329,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53196742}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &53196747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53196742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32f1443677f5d847b1404bfaf9eeb22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotate: 0
+  rotationSpeed: 0
 --- !u!1 &57922139
 GameObject:
   m_ObjectHideFlags: 0
@@ -4258,28 +4273,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1110117349}
-  - component: {fileID: 1110117348}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Test Power Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1110117348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110117347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f94c172d43d591541950ad113eb72169, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotate: 0
-  rotationSpeed: 0
 --- !u!4 &1110117349
 Transform:
   m_ObjectHideFlags: 0
