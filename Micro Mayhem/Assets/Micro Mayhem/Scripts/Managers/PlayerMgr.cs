@@ -50,6 +50,8 @@ public class PlayerMgr : MonoBehaviour
     private int maxArmor;
 
     [Header("Player Inventory")]
+    public List<Gun> gunList;
+    public GameObject weapon;
     public Gun gun;
     public int currentGunID = 0;
 
@@ -59,6 +61,8 @@ public class PlayerMgr : MonoBehaviour
     {
         //health = 100;
         //armor = 0;
+
+        SelectWeapon();
 
         maxHealth = 100;
         maxArmor = 100;
@@ -169,5 +173,24 @@ public class PlayerMgr : MonoBehaviour
     public void ReduceWeaponDamage()
     {
         gun.damage -= 2;
+    }
+
+    public void SelectWeapon()
+    {
+        int i = 0;
+        foreach(Transform weaponObject in weapon.transform)
+        {
+            if(i == currentGunID)
+            {
+                weaponObject.gameObject.SetActive(true);
+                gun = weaponObject.GetComponent<Gun>();
+            }
+            else
+            {
+                weaponObject.gameObject.SetActive(false);
+            }
+
+            i++;
+        }
     }
 }

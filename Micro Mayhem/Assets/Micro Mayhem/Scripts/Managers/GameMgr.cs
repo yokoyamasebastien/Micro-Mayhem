@@ -34,13 +34,6 @@ public class GameMgr : MonoBehaviour
     [Header("Particle Effects")]
     public ParticleSystem roundEndConfetti;
 
-    [Header("Gun List")]
-    public List<Gun> gunList;
-
-    [Header("Gun References for WeaponUpgrade")]
-    public GameObject pistolToRemove;
-    public GameObject sniperToRemove;
-
 
     /*---------- Methods ----------*/
     // Start is called before the first frame update

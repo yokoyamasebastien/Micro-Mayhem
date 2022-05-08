@@ -66,6 +66,38 @@ public class InputMgr : MonoBehaviour
             PlayerMgr.inst.gun.Shoot();
         }
 
+        /*----- Mouse Scrolling for Changing Weapons -----*/
+        int prevSelectedWeapon = PlayerMgr.inst.currentGunID;
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        {
+            if (PlayerMgr.inst.currentGunID >= (PlayerMgr.inst.weapon.transform.childCount - 1))
+            {
+                PlayerMgr.inst.currentGunID = 0;
+            }
+            else
+            {
+                PlayerMgr.inst.currentGunID++;
+            }
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+            if (PlayerMgr.inst.currentGunID <= (PlayerMgr.inst.weapon.transform.childCount - 1))
+            {
+                PlayerMgr.inst.currentGunID = PlayerMgr.inst.weapon.transform.childCount - 1;
+            }
+            else
+            {
+                PlayerMgr.inst.currentGunID--;
+            }
+        }
+
+        if (prevSelectedWeapon != PlayerMgr.inst.currentGunID)
+        {
+            PlayerMgr.inst.SelectWeapon();
+        }
+
         /*----- Keyboard Input for Movement -----*/
         // Hold LSHIFT to Run
         if (Input.GetKey(KeyCode.LeftShift))
