@@ -6,6 +6,8 @@ public class Gun : MonoBehaviour
     [Header("Gun Attributes")]
     public int damage;
 
+    public float force;
+
     public float timeBetweenShooting;
     public float spread;
     public float range;
@@ -93,7 +95,8 @@ public class Gun : MonoBehaviour
                 Enemy enemy = hit.transform.GetComponent<Enemy>();
                 if (enemy != null)
                 {
-                    enemy.TakeDamage(damage);
+                    enemy.TakeDamage(damage);   // Apply damage
+                    enemy.enemyRB.AddForce(-hit.normal * force);    // Apply knockback force
                 }
             }
         }
