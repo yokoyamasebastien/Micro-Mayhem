@@ -29,9 +29,12 @@ public class Gun : MonoBehaviour
 
     [Header("Gun FX")]
     public Transform attackPoint;
-    //public GameObject muzzleFlash;
     public ParticleSystem muzzleFlash;
     //public GameObject bulletHole;
+
+    [Header("Gun SFX")]
+    public AudioClip gunshotSound;
+    public AudioClip reloadSound;
 
     // Start is called before the first frame update
     void Start()
@@ -74,7 +77,9 @@ public class Gun : MonoBehaviour
 
         //Play MuzzleFlash
         muzzleFlash.Play();
-        PlayWeaponFire();
+
+        // Play audio
+        AudioMgr.inst.PlayGunFire();
 
         // Raycast
         RaycastHit hit;
@@ -124,7 +129,7 @@ public class Gun : MonoBehaviour
     {
         if (!AudioMgr.inst.gunSource.isPlaying)
         {
-            PlayWeaponReload();
+            AudioMgr.inst.PlayGunReload();
             reloading = true;
             Invoke("ReloadFinished", reloadTime);
         }
@@ -136,42 +141,4 @@ public class Gun : MonoBehaviour
         bulletsLeft = magazineSize;
         reloading = false;
     }
-
-    public void PlayWeaponFire()
-    {
-        if (PlayerMgr.inst.currentGunID == 0)
-        {
-            AudioMgr.inst.PlayPistolFire();
-        }
-
-        if (PlayerMgr.inst.currentGunID == 1)
-        {
-            AudioMgr.inst.PlaySniperFire();
-        }
-
-        if (PlayerMgr.inst.currentGunID == 2)
-        {
-            AudioMgr.inst.PlayRocketFire();
-        }
-    }
-
-    public void PlayWeaponReload()
-    {
-        if (PlayerMgr.inst.currentGunID == 0)
-        {
-            AudioMgr.inst.PlayPistolReload();
-        }
-
-        if (PlayerMgr.inst.currentGunID == 1)
-        {
-            AudioMgr.inst.PlaySniperReload();
-        }
-
-        if (PlayerMgr.inst.currentGunID == 2)
-        {
-            AudioMgr.inst.PlayRocketReload();
-        }
-    }
 }
-    
-

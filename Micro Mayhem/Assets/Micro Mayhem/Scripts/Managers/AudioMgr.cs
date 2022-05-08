@@ -38,6 +38,7 @@ public class AudioMgr : MonoBehaviour
 
     [Header("Gun Audio")]
     public AudioSource gunSource;
+
     public AudioClip pistolFire;
     public AudioClip pistolReload;
     public AudioClip sniperFire;
@@ -100,39 +101,15 @@ public class AudioMgr : MonoBehaviour
         moveSource.Play();
     }
 
-    public void PlayPistolFire()
+    public void PlayGunFire()
     {
-        gunSource.clip = pistolFire;
+        gunSource.clip = PlayerMgr.inst.gun.gunshotSound;
         gunSource.Play();
     }
 
-    public void PlayPistolReload()
+    public void PlayGunReload()
     {
-        gunSource.clip = pistolReload;
-        gunSource.Play();
-    }
-
-    public void PlaySniperFire()
-    {
-        gunSource.clip = sniperFire;
-        gunSource.Play();
-    }
-
-    public void PlaySniperReload()
-    {
-        gunSource.clip = sniperReload;
-        gunSource.Play();
-    }
-
-    public void PlayRocketFire()
-    {
-        gunSource.clip = rocketFire;
-        gunSource.Play();
-    }
-
-    public void PlayRocketReload()
-    {
-        gunSource.clip = rocketReload;
+        gunSource.clip = PlayerMgr.inst.gun.reloadSound;
         gunSource.Play();
     }
 
@@ -140,6 +117,4 @@ public class AudioMgr : MonoBehaviour
     {
         AudioSource.PlayClipAtPoint(playerDamageEffect, PlayerMgr.inst.player.transform.position, 3f);
     }
-
-
 }

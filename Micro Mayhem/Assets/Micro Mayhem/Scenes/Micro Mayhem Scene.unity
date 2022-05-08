@@ -343,6 +343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotate: 0
   rotationSpeed: 0
+  collectSound: {fileID: 0}
 --- !u!1 &57922139
 GameObject:
   m_ObjectHideFlags: 0
@@ -6177,6 +6178,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2593725032869022841, guid: a948e65505a46fd43bb160e9874685c7,
         type: 3}
+      propertyPath: gunshotSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f2c85efe0bf70b3449a1dbf302c6840e, type: 3}
+    - target: {fileID: 2593725032869022841, guid: a948e65505a46fd43bb160e9874685c7,
+        type: 3}
       propertyPath: timeBetweenShooting
       value: 2.5
       objectReference: {fileID: 0}
@@ -8402,6 +8408,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1538909536}
     m_Modifications:
+    - target: {fileID: 2391494125845862511, guid: 7137aedbfb619624398657b4fd963bec,
+        type: 3}
+      propertyPath: gunshotSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 74bd64777f4cee94f8ceb3dfab5462e0, type: 3}
     - target: {fileID: 2392546968563090352, guid: 7137aedbfb619624398657b4fd963bec,
         type: 3}
       propertyPath: m_Layer
