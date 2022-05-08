@@ -74,7 +74,7 @@ public class GameMgr : MonoBehaviour
         SpawnConsumables();
         waveNumber++;
         PlayerMgr.inst.ShrinkPlayer();
-        //PlayerMgr.inst.ReduceWeaponDamage();
+        PlayerMgr.inst.ReduceWeaponDamage();
         ConfettiSpawn();
     }
 

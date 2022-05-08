@@ -179,10 +179,10 @@ public class PlayerMgr : MonoBehaviour
      */
     public void ReduceWeaponDamage()
     {
-        foreach(Transform weaponObject in weapon.transform)
+        foreach (Transform weaponObject in weapon.transform)
         {
-            float newDamage = weaponObject.GetComponent<Gun>().damage * 0.75f;
-            weaponObject.GetComponent<Gun>().damage = (int)newDamage;
+            Gun gunElement = weaponObject.GetComponent<Gun>();
+            gunElement.damage = (int)(gunElement.damage * 0.75f);
         }
     }
 
