@@ -2,27 +2,27 @@
 // EMAIL: syokoyama2001@nevada.unr.edu
 // COURSE: CS 381.1001
 // ASSIGNMENT: Semester Project
-// FILE NAME: WalkIncrease.cs
+// FILE NAME: RunIncrease.cs
 /* FILE DESCRIPTION: Allows an object to be consumed by the player upon contact.
- The item will increase the walk speed of the player by 15%. */
+ The item will increase the walk speed of the player by 10%. */
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkIncrease : Consumable
+public class RunIncrease : Consumable
 {
     /*---------- Properties ----------*/
-    float percentage = 0.15f;
+    float percentage = 0.1f;
 
     /*---------- Methods ----------*/
     /* Collect Method
-     * Increases walk speed of player, destroys gameobject on consumption
+     * Increases run speed of player, destroys gameobject on consumption
      * Removes consumable from active consumables list
      */
     public override void Collect()
     {
-        PlayerMgr.inst.walkSpeed *= (1 + percentage);
+        PlayerMgr.inst.runSpeed *= (1 + percentage);
 
         //if (collectSound)
         //AudioSource.PlayClipAtPoint(collectSound, transform.position
