@@ -66,8 +66,8 @@ public class EnemyMelee : Enemy
         eulerAngleVelocity = new Vector3(0, angle, 0);
         deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime);
         enemyRB.MoveRotation(enemyRB.rotation * deltaRotation);
-
         Vector3 direction = (player.transform.position - transform.position).normalized;
         enemyRB.MovePosition(transform.position + direction * speed * Time.deltaTime);
+        Debug.DrawLine(transform.position, Vector3.forward, Color.black);
     }
 }

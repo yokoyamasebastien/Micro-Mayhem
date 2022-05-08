@@ -51,6 +51,7 @@ public class PlayerMgr : MonoBehaviour
 
     [Header("Player Inventory")]
     public Gun gun;
+    public int currentGunID = 0;
 
     /*---------- Methods ----------*/
     // Start is called before the first frame update
@@ -66,6 +67,7 @@ public class PlayerMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         /*----- Y-axis Movement -----*/
         // Check if you land on the ground
         if(Physics.Raycast(playerBody.position, Vector3.down, distToGround + 0.1f) && velocity.y < 0)

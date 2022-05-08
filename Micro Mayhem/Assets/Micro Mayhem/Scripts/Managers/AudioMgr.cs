@@ -40,6 +40,8 @@ public class AudioMgr : MonoBehaviour
     public AudioSource gunSource;
     public AudioClip pistolFire;
     public AudioClip pistolReload;
+    public AudioClip sniperFire;
+    public AudioClip sniperReload;
 
     [Header("Player SFX")]
     public AudioClip playerDamageEffect;
@@ -105,6 +107,18 @@ public class AudioMgr : MonoBehaviour
     public void PlayPistolReload()
     {
         gunSource.clip = pistolReload;
+        gunSource.Play();
+    }
+
+    public void PlaySniperFire()
+    {
+        gunSource.clip = sniperFire;
+        gunSource.Play();
+    }
+
+    public void PlaySniperReload()
+    {
+        gunSource.clip = sniperReload;
         gunSource.Play();
     }
 

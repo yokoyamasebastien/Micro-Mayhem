@@ -58,7 +58,7 @@ public class Gun : MonoBehaviour
 
         //Play MuzzleFlash
         muzzleFlash.Play();
-        AudioMgr.inst.PlayPistolFire();
+        PlayWeaponFire();
 
         // Raycast
         RaycastHit hit;
@@ -96,7 +96,7 @@ public class Gun : MonoBehaviour
     {
         if (!AudioMgr.inst.gunSource.isPlaying)
         {
-            AudioMgr.inst.PlayPistolReload();
+            PlayWeaponReload();
             reloading = true;
             Invoke("ReloadFinished", reloadTime);
         }
@@ -109,5 +109,30 @@ public class Gun : MonoBehaviour
         reloading = false;
     }
 
+    public void PlayWeaponFire()
+    {
+        if (PlayerMgr.inst.currentGunID == 0)
+        {
+            AudioMgr.inst.PlayPistolFire();
+        }
+
+        if (PlayerMgr.inst.currentGunID == 1)
+        {
+            AudioMgr.inst.PlaySniperFire();
+        }
+    }
+
+    public void PlayWeaponReload()
+    {
+        if (PlayerMgr.inst.currentGunID == 0)
+        {
+            AudioMgr.inst.PlayPistolReload();
+        }
+
+        if (PlayerMgr.inst.currentGunID == 1)
+        {
+            AudioMgr.inst.PlaySniperReload();
+        }
+    }
     
 }

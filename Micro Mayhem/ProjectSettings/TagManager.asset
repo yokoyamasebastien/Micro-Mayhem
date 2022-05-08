@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Health Pack
   - Armor Pack
+  - Pistol
+  - Sniper
   layers:
   - Default
   - TransparentFX

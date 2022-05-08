@@ -26,6 +26,7 @@ public class GameMgr : MonoBehaviour
     [Header("Consumable Assets")]
     public GameObject healthPack;
     public GameObject armorPack;
+    public GameObject weaponUpgrade;
 
     public int consumableCount;
 
@@ -33,19 +34,29 @@ public class GameMgr : MonoBehaviour
     [Header("Particle Effects")]
     public ParticleSystem roundEndConfetti;
 
+    [Header("Gun List")]
+    public List<Gun> gunList;
+
+    [Header("Gun References for WeaponUpgrade")]
+    public GameObject pistolToRemove;
+    public GameObject sniperToRemove;
+
 
     /*---------- Methods ----------*/
     // Start is called before the first frame update
     void Start()
     {
-
+       // for (int i = 0; i < GameMgr.inst.gunList.Count; i++)
+        //{
+          //  gunList[i].
+       // }
     }
 
     // Update is called once per frame
     void Update()
     {
         // If all enemies are dead, go to next wave
-        if(AIMgr.inst.enemyCount == 0)
+        if (AIMgr.inst.enemyCount == 0)
         {
             RoundEnd();
             AIMgr.inst.SpawnEnemies();
@@ -67,6 +78,9 @@ public class GameMgr : MonoBehaviour
         PlayerMgr.inst.ShrinkPlayer();
         //PlayerMgr.inst.ReduceWeaponDamage();
         ConfettiSpawn();
+
+        if (waveNumber == 2 || waveNumber == 4)
+            SpawnWeaponUpgrade();
     }
 
     /*
@@ -101,6 +115,11 @@ public class GameMgr : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("Main Menu");
+    }
+
+    public void SpawnWeaponUpgrade()
+    {
+        Instantiate(weaponUpgrade, new Vector3(-23, 1, 22), Quaternion.identity);
     }
 
 }
