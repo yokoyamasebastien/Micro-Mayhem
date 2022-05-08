@@ -1051,8 +1051,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 192, y: -23.5869}
-  m_SizeDelta: {x: 685.6542, y: 191.057}
+  m_AnchoredPosition: {x: 37, y: 11}
+  m_SizeDelta: {x: 238.1867, y: 121.8833}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1201751237
 MonoBehaviour:
@@ -1093,12 +1093,10 @@ MonoBehaviour:
 
     RELOAD = R
 
-    MENU = M
+    LOOK = MOUSE
 
-    LOOK
-    = MOUSE
-
-    FIRE = LEFT MOUSE'
+    FIRE
+    = LEFT MOUSE'
 --- !u!222 &1201751238
 CanvasRenderer:
   m_ObjectHideFlags: 0
