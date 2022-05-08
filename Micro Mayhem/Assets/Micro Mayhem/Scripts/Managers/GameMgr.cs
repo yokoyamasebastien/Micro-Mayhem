@@ -34,6 +34,11 @@ public class GameMgr : MonoBehaviour
     [Header("Particle Effects")]
     public ParticleSystem roundEndConfetti;
 
+    [Header("Objects to Instantiate")]
+    public Rigidbody rocket;
+
+    public GameObject rocketSpawnPoint;
+
 
     /*---------- Methods ----------*/
     // Start is called before the first frame update

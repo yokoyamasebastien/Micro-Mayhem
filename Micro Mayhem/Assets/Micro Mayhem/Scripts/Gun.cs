@@ -58,8 +58,8 @@ public class Gun : MonoBehaviour
         {
             if (!PlayerMgr.inst.isScoped)
             {
-                xSpread = 5 * Random.Range(-spread, spread);
-                ySpread = 5 * Random.Range(-spread, spread);
+                xSpread = 3 * Random.Range(-spread, spread);
+                ySpread = 3 * Random.Range(-spread, spread);
             }
         }
         else
@@ -77,13 +77,24 @@ public class Gun : MonoBehaviour
         // Raycast
         RaycastHit hit;
         if (Physics.Raycast(CameraMgr.inst.playerCam.transform.position, direction, out hit, range)){
-            //Debug.Log(hit.transform.name);
-
-            /*----- Apply Damage to Enemy if hit -----*/
-            Enemy enemy = hit.transform.GetComponent<Enemy>();
-            if (enemy != null)
+            
+            /*----------Take care of rocket launcher projectile--------*/
+            if (PlayerMgr.inst.currentGunID == 2)
             {
-                enemy.TakeDamage(damage);
+                Rigidbody clonedRocket;
+                clonedRocket = Instantiate(GameMgr.inst.rocket, GameMgr.inst.rocketSpawnPoint.transform.position, GameMgr.inst.rocketSpawnPoint.transform.rotation);
+
+                clonedRocket.velocity = transform.TransformDirection((Vector3.right - new Vector3(0, 0.5f, -.2f)) * 10f);
+            }
+
+            /*----- Apply Damage to Enemy if hit with bullet weapon-----*/
+            else
+            { 
+                Enemy enemy = hit.transform.GetComponent<Enemy>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(damage);
+                }
             }
         }
 
@@ -134,6 +145,11 @@ public class Gun : MonoBehaviour
         {
             AudioMgr.inst.PlaySniperFire();
         }
+
+        if (PlayerMgr.inst.currentGunID == 2)
+        {
+            AudioMgr.inst.PlayRocketFire();
+        }
     }
 
     public void PlayWeaponReload()
@@ -147,6 +163,12 @@ public class Gun : MonoBehaviour
         {
             AudioMgr.inst.PlaySniperReload();
         }
+
+        if (PlayerMgr.inst.currentGunID == 2)
+        {
+            AudioMgr.inst.PlayRocketReload();
+        }
     }
-    
 }
+    
+
