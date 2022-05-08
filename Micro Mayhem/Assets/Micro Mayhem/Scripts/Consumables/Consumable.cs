@@ -1,3 +1,10 @@
+// NAME: Sebastien Yokoyama
+// EMAIL: syokoyama2001@nevada.unr.edu
+// COURSE: CS 381.1001
+// ASSIGNMENT: Semester Project
+// FILE NAME: Consumable.cs
+/* FILE DESCRIPTION: Allows an object to be consumed by the player upon contact. */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
