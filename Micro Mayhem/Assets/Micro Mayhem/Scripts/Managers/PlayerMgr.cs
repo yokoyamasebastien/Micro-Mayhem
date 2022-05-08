@@ -50,7 +50,6 @@ public class PlayerMgr : MonoBehaviour
     private int maxArmor;
 
     [Header("Player Inventory")]
-    public List<Gun> gunList;
     public GameObject weapon;
     public Gun gun;
     public int currentGunID = 0;
@@ -176,11 +175,15 @@ public class PlayerMgr : MonoBehaviour
     }
 
     /*ReduceWeaponDamage Method
-     * Reduces currently equipped weapon damage by 2
+     * Reduces damage of all weapons by 25%
      */
     public void ReduceWeaponDamage()
     {
-        gun.damage -= 2;
+        foreach(Transform weaponObject in weapon.transform)
+        {
+            float newDamage = weaponObject.GetComponent<Gun>().damage * 0.75f;
+            weaponObject.GetComponent<Gun>().damage = (int)newDamage;
+        }
     }
 
     public void SelectWeapon()
