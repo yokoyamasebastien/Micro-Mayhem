@@ -15,7 +15,8 @@ public abstract class Consumable : MonoBehaviour
     [Header("Properties")]
     public bool rotate;
     public float rotationSpeed;
-    //public ParticleSystem collectEffect;
+    
+    public AudioClip collectSound;
 
 
     /*---------- Methods ----------*/
@@ -46,10 +47,6 @@ public abstract class Consumable : MonoBehaviour
      */
     public virtual void Collect()
     {
-        //if (collectSound)
-        //AudioSource.PlayClipAtPoint(collectSound, transform.position
-        //collectEffect.Play();
-
         GameMgr.inst.consumableCount--;
         Destroy(gameObject);
     }

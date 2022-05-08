@@ -24,9 +24,7 @@ public class HealthPack : Consumable
 	{
         PlayerMgr.inst.health += health;
 
-        //if (collectSound)
-        //AudioSource.PlayClipAtPoint(collectSound, transform.position
-        //collectEffect.Play();
+        AudioSource.PlayClipAtPoint(collectSound, transform.position);  // Play sound
 
         base.Collect(); // Delete this object
     }

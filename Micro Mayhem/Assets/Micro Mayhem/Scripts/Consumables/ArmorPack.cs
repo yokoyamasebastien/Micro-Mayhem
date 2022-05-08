@@ -24,9 +24,7 @@ public class ArmorPack : Consumable
     {
         PlayerMgr.inst.armor += armor;
 
-        //if (collectSound)
-        //AudioSource.PlayClipAtPoint(collectSound, transform.position
-        //collectEffect.Play();
+        AudioSource.PlayClipAtPoint(collectSound, transform.position);  // Play sound
 
         base.Collect(); // Delete this object
     }
