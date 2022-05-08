@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -15,6 +18,17 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameIsPaused && pauseMenuUI != null)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.M))
         {
             if (gameIsPaused)
@@ -49,4 +63,20 @@ public class PauseMenu : MonoBehaviour
         UIMgr.inst.crosshair.enabled = false;
         gameIsPaused = true;
     }
+
+    public void LoadMenu()
+    {
+       
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void ResumeGame()
+    {
+        Resume();
+    }
+
 }

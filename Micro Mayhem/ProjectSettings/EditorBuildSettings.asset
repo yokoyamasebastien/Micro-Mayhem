@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Micro Mayhem/Scenes/Micro Mayhem Scene.unity
     guid: f95fff293fb743944bb8807c852246fe
+  - enabled: 1
+    path: Assets/Micro Mayhem/Scenes/SubMenu.unity
+    guid: a8d9f64c6985406469806ed04cd27202
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
