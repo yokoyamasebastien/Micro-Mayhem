@@ -33,6 +33,12 @@ public class EnemyMelee : Enemy
 
     void FixedUpdate()
     {
+
+        if (enemyBody.position.y <= 0)
+        {
+            TakeDamage(1000);
+        }
+
         //Constantly move melee enemy towards player
         Move();
 
