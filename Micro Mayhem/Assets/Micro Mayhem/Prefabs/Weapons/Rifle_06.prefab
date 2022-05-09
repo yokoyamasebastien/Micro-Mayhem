@@ -389,6 +389,7 @@ MonoBehaviour:
   bulletsLeft: 0
   bulletsShot: 0
   hitscan: 1
+  type: 1
   shooting: 0
   readyToShoot: 0
   reloading: 0

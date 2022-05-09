@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 90
+  force: 0
   timeBetweenShooting: 4
   spread: 0
   range: 100
@@ -171,11 +172,15 @@ MonoBehaviour:
   allowButtonHold: 0
   bulletsLeft: 0
   bulletsShot: 0
+  hitscan: 0
+  type: 4
   shooting: 0
   readyToShoot: 0
   reloading: 0
   attackPoint: {fileID: 0}
   muzzleFlash: {fileID: 3825592644957443958}
+  gunshotSound: {fileID: 0}
+  reloadSound: {fileID: 0}
 --- !u!1 &2924116000219638572
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,6 +24,10 @@ public class Gun : MonoBehaviour
 
     public bool hitscan;   // If true, shoots bullets; if false, shoots projectiles
 
+    public enum WeaponType { Pistol, Rifle, Sniper, Heavy, RocketLauncher };
+    public WeaponType type;
+
+
     [Header("Gun State")]
     public bool shooting;
     public bool readyToShoot;
