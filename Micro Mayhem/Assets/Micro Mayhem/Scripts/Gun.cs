@@ -22,6 +22,8 @@ public class Gun : MonoBehaviour
     public int bulletsLeft; 
     public int bulletsShot;
 
+    public bool hitscan;   // If true, shoots bullets; if false, shoots projectiles
+
     [Header("Gun State")]
     public bool shooting;
     public bool readyToShoot;
@@ -75,18 +77,12 @@ public class Gun : MonoBehaviour
         
         Vector3 direction = CameraMgr.inst.playerCam.transform.forward + new Vector3(xSpread, ySpread, 0);
 
-        //Play MuzzleFlash
-        muzzleFlash.Play();
-
-        // Play audio
-        AudioMgr.inst.PlayGunFire();
-
         // Raycast
         RaycastHit hit;
         if (Physics.Raycast(CameraMgr.inst.playerCam.transform.position, direction, out hit, range)){
             
             /*----------Take care of rocket launcher projectile--------*/
-            if (PlayerMgr.inst.currentGunID == 2)
+            if (!hitscan)
             {
                 Rigidbody clonedRocket;
                 clonedRocket = Instantiate(GameMgr.inst.rocket, GameMgr.inst.rocketSpawnPoint.transform.position, GameMgr.inst.rocketSpawnPoint.transform.rotation);
@@ -106,9 +102,12 @@ public class Gun : MonoBehaviour
             }
         }
 
-        // Gun FX
-        //Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
-        //Instantiate(bulletHole, hit.point, Quaternion.Euler(0, 180, 0));
+        //Play MuzzleFlash
+        muzzleFlash.Play();
+
+        // Play audio
+        AudioMgr.inst.PlayGunFire();
+
 
         bulletsLeft--;
         bulletsShot--;
@@ -127,13 +126,9 @@ public class Gun : MonoBehaviour
 
     public void Reload()
     {
-        if (!AudioMgr.inst.gunSource.isPlaying)
-        {
-            AudioMgr.inst.PlayGunReload();
-            reloading = true;
-            Invoke("ReloadFinished", reloadTime);
-        }
-    
+        AudioMgr.inst.PlayGunReload();
+        reloading = true;
+        Invoke("ReloadFinished", reloadTime);
     }
 
     private void ReloadFinished()

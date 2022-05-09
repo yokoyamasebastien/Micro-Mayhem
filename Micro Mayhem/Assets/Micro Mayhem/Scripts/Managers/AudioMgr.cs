@@ -38,13 +38,7 @@ public class AudioMgr : MonoBehaviour
 
     [Header("Gun Audio")]
     public AudioSource gunSource;
-
-    public AudioClip pistolFire;
-    public AudioClip pistolReload;
-    public AudioClip sniperFire;
-    public AudioClip sniperReload;
-    public AudioClip rocketFire;
-    public AudioClip rocketReload;
+    public AudioSource reloadSource;    // Prevents gunshot audio from cutting out
 
     [Header("Player SFX")]
     public AudioClip playerDamageEffect;
@@ -109,8 +103,8 @@ public class AudioMgr : MonoBehaviour
 
     public void PlayGunReload()
     {
-        gunSource.clip = PlayerMgr.inst.gun.reloadSound;
-        gunSource.Play();
+        reloadSource.clip = PlayerMgr.inst.gun.reloadSound;
+        reloadSource.Play();
     }
 
     public void PlayDamageSound()
