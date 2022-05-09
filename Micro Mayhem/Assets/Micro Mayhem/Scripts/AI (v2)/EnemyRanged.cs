@@ -62,6 +62,8 @@ public class EnemyRanged : Enemy
         //If within attack range, attack
         if (shouldRun)
             Move();
+
+        transform.LookAt(player.transform);
     }
 
     /* Attack Method

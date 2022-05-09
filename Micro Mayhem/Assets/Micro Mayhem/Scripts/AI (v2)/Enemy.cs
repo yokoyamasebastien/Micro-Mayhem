@@ -50,9 +50,9 @@ public abstract class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        //Move();
+        transform.LookAt(player.transform);
     }
 
     /* Move Method
