@@ -8,7 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor.Animations;
+using UnityEngine.Animations;
 
 public class GameMgr : MonoBehaviour
 {
@@ -22,7 +22,7 @@ public class GameMgr : MonoBehaviour
 
     /*---------- Properties ----------*/
     [Header("Game Attributes")]
-    public int waveNumber = 1;
+    public int waveNumber;
 
     [Header("Consumable Assets")]
     public GameObject healthPack;
@@ -48,12 +48,12 @@ public class GameMgr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        waveNumber = 1;
         AIMgr.inst.SpawnEnemies();
+        waveNumber = 1;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         // If all enemies are dead, go to next wave
         if (AIMgr.inst.enemyCount == 0)

@@ -4650,6 +4650,7 @@ MonoBehaviour:
   - {fileID: 1671029925390012, guid: 366619146f7ba4845a97d6c0a2075c9b, type: 3}
   - {fileID: 2593725031726667668, guid: 02cd530037f787644a5ca56caaa76228, type: 3}
   - {fileID: 1294672646082164, guid: 9c27b23f83b3878449eeaa486ab9b8c3, type: 3}
+  - {fileID: 1135181917830312844, guid: 4887e046f854edc468dff5586b37ef85, type: 3}
   consumableCount: 0
   roundEndConfetti: {fileID: 1927284636}
   rocket: {fileID: 91128310120046435, guid: 5269dd52fdc50ea429c6b6a65cc1161e, type: 3}

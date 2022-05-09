@@ -63,6 +63,5 @@ public class AIMgr : MonoBehaviour
             var spawnPos = new Vector3(Random.Range(minDist, maxDist), 1, Random.Range(minDist, maxDist));
             Instantiate(rangedPrefab, spawnPos, Quaternion.identity);
         }
-
     }
 }
