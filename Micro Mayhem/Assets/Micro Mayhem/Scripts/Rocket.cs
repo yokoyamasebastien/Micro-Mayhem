@@ -10,12 +10,14 @@ public class Rocket : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        
         Instantiate(explosion, transform.position, Quaternion.identity);
         Collider[] colliders = Physics.OverlapSphere(transform.position, blastRadius);
         foreach (Collider nearbyObject in colliders)
         {
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
             Enemy enemy = nearbyObject.transform.GetComponent<Enemy>();
+            
             if (rb != null)
             {
                     enemy.TakeDamage(100);
