@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 932374239606798421}
   m_Layer: 0
   m_Name: Heavy_08
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -294,17 +294,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4924834a7e4ab1948929b930bbda6e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 250
+  damage: 1000
   force: 0
-  timeBetweenShooting: 3
+  timeBetweenShooting: 2
   spread: 0.01
   range: 100
-  reloadTime: 5
+  reloadTime: 3
   timeBetweenShots: 0
-  magazineSize: 3
-  bulletsPerTap: 1
+  magazineSize: 9
+  bulletsPerTap: 3
   allowButtonHold: 0
-  bulletsLeft: 3
+  bulletsLeft: 0
   bulletsShot: 0
   hitscan: 1
   type: 3

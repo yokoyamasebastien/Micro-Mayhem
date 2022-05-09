@@ -169,6 +169,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sniper
       objectReference: {fileID: 0}
+    - target: {fileID: 2593725031726667668, guid: a948e65505a46fd43bb160e9874685c7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2593725031726762932, guid: a948e65505a46fd43bb160e9874685c7,
         type: 3}
       propertyPath: m_RootOrder
