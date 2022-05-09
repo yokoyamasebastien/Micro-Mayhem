@@ -11,6 +11,7 @@ using UnityEngine;
 
 public class EnemyMelee : Enemy
 {
+    public float minDistance = 2f;
 
     /*---------- Methods ----------*/
     // Start is called before the first frame update
@@ -41,10 +42,16 @@ public class EnemyMelee : Enemy
         }
 
         //Constantly move melee enemy towards player
-        Move();
+        //Move();
+
+        if (Vector3.Distance(transform.position, player.transform.position) > minDistance)
+        {
+            Move();
+        }
 
         //If within mindist range, attack
-        if (Vector3.Distance(transform.position, player.transform.position) <= maxDistance)
+        if ((Vector3.Distance(transform.position, player.transform.position) <= maxDistance) && 
+            (Vector3.Distance(transform.position, player.transform.position) >= (minDistance * 0.95f)))
         {
             Attack();
         }

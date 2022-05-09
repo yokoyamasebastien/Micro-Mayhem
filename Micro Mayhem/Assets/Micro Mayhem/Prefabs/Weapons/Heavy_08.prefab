@@ -314,7 +314,7 @@ MonoBehaviour:
   attackPoint: {fileID: 0}
   muzzleFlash: {fileID: 7423508712854416974}
   gunshotSound: {fileID: 8300000, guid: f42aefe4ca17b4b4480f0eea9ec7e1f4, type: 3}
-  reloadSound: {fileID: 0}
+  reloadSound: {fileID: 8300000, guid: ef01ff838079f4f4188ba74a2d987a88, type: 3}
 --- !u!1 &1361264557881328
 GameObject:
   m_ObjectHideFlags: 0

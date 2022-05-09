@@ -10,6 +10,7 @@ TagManager:
   - Armor Pack
   - Pistol
   - Sniper
+  - Enemy
   layers:
   - Default
   - TransparentFX

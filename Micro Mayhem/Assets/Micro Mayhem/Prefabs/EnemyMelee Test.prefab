@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4900912904644818996}
   m_Layer: 0
   m_Name: EnemyMelee Test
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,8 +123,9 @@ MonoBehaviour:
   speed: 8
   listIndex: 0
   damage: 20
-  maxDistance: 1
+  maxDistance: 3
   enemyDeath: {fileID: 8300000, guid: de201090453b6fe49a6574cef760b107, type: 3}
+  minDistance: 2
 --- !u!54 &4900912904644818996
 Rigidbody:
   m_ObjectHideFlags: 0
