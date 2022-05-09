@@ -22,8 +22,6 @@ public class DamageIncrease : Consumable
      */
     public override void Collect()
     {
-        //PlayerMgr.inst.armor += armor;
-
         foreach (Transform weaponObject in PlayerMgr.inst.weapon.transform)
         {
             Gun weapon = weaponObject.GetComponent<Gun>();
@@ -31,9 +29,7 @@ public class DamageIncrease : Consumable
             weapon.damage = (int)fDamage;
         }
 
-        //if (collectSound)
-        //AudioSource.PlayClipAtPoint(collectSound, transform.position
-        //collectEffect.Play();
+        AudioSource.PlayClipAtPoint(collectSound, transform.position);  // Play sound
 
         base.Collect(); // Delete this object
     }

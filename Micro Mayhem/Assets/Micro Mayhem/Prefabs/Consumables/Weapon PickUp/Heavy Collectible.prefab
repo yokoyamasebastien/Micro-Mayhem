@@ -252,9 +252,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4166463531722480}
-  - component: {fileID: 932374239606798421}
+  - component: {fileID: 8049470967703519165}
+  - component: {fileID: 5681376575744144128}
   m_Layer: 0
-  m_Name: Heavy_08
+  m_Name: Heavy Collectible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,7 +283,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &932374239606798421
+--- !u!114 &8049470967703519165
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -291,30 +292,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1294672646082164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4924834a7e4ab1948929b930bbda6e29, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f14a5ebe249b2645a411684e8fa09b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 250
-  force: 0
-  timeBetweenShooting: 3
-  spread: 0.01
-  range: 100
-  reloadTime: 5
-  timeBetweenShots: 0
-  magazineSize: 3
-  bulletsPerTap: 1
-  allowButtonHold: 0
-  bulletsLeft: 3
-  bulletsShot: 0
-  hitscan: 1
-  type: 3
-  shooting: 0
-  readyToShoot: 0
-  reloading: 0
-  attackPoint: {fileID: 0}
-  muzzleFlash: {fileID: 7423508712854416974}
-  gunshotSound: {fileID: 8300000, guid: f42aefe4ca17b4b4480f0eea9ec7e1f4, type: 3}
-  reloadSound: {fileID: 0}
+  rotate: 0
+  rotationSpeed: 0
+  collectSound: {fileID: 8300000, guid: 3ea02fcf9411b214684a83598ed37d73, type: 3}
+  prefab: {fileID: 1294672646082164, guid: 8d43e76b346f2f8448846e9211629d15, type: 3}
+  position: {x: 0, y: 0, z: 0}
+--- !u!65 &5681376575744144128
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294672646082164}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1361264557881328
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,12 +719,6 @@ PrefabInstance:
 --- !u!4 &1040039751334476133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 264520514954343661, guid: 3f5b545b9a1e74c418b061bba5bb9e2c,
-    type: 3}
-  m_PrefabInstance: {fileID: 992254979223555464}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &7423508712854416974 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7692336672675980230, guid: 3f5b545b9a1e74c418b061bba5bb9e2c,
     type: 3}
   m_PrefabInstance: {fileID: 992254979223555464}
   m_PrefabAsset: {fileID: 0}

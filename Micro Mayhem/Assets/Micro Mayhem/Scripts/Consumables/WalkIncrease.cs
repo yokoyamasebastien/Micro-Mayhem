@@ -24,9 +24,7 @@ public class WalkIncrease : Consumable
     {
         PlayerMgr.inst.walkSpeed *= (1 + percentage);
 
-        //if (collectSound)
-        //AudioSource.PlayClipAtPoint(collectSound, transform.position
-        //collectEffect.Play();
+        AudioSource.PlayClipAtPoint(collectSound, transform.position);  // Play sound
 
         base.Collect(); // Delete this object
     }
