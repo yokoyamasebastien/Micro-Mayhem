@@ -73,33 +73,14 @@ public class InputMgr : MonoBehaviour
         /*----- Mouse Scrolling for Changing Weapons -----*/
         int prevSelectedWeapon = PlayerMgr.inst.currentGunID;
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
-        {
-            if (PlayerMgr.inst.currentGunID >= (PlayerMgr.inst.weapon.transform.childCount - 1))
-            {
-                PlayerMgr.inst.currentGunID = 0;
-            }
-            else
-            {
-                PlayerMgr.inst.currentGunID++;
-            }
-        }
-
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
-            if (PlayerMgr.inst.currentGunID <= (PlayerMgr.inst.weapon.transform.childCount - 1))
-            {
-                PlayerMgr.inst.currentGunID = PlayerMgr.inst.weapon.transform.childCount - 1;
-            }
-            else
-            {
-                PlayerMgr.inst.currentGunID--;
-            }
+            PlayerMgr.inst.SelectNextWeapon();
         }
 
-        if (prevSelectedWeapon != PlayerMgr.inst.currentGunID)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
-            PlayerMgr.inst.SelectWeapon();
+            PlayerMgr.inst.SelectPreviousWeapon();
         }
 
         /*----- Keyboard Input for Movement -----*/
@@ -166,7 +147,7 @@ public class InputMgr : MonoBehaviour
            // int i = 0;
             //foreach (Transform weaponObject in PlayerMgr.inst.weapon.transform)
             //{
-                if (PlayerMgr.inst.currentGunID == 1)
+                if (PlayerMgr.inst.gun.type == Gun.WeaponType.Sniper)
                 {
                     PlayerMgr.inst.isScoped = !PlayerMgr.inst.isScoped;
                     animator.SetBool("isScoped", PlayerMgr.inst.isScoped);

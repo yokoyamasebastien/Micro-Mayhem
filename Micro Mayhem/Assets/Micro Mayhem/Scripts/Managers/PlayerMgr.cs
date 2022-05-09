@@ -50,6 +50,8 @@ public class PlayerMgr : MonoBehaviour
     private int maxArmor;
 
     [Header("Player Inventory")]
+    public List<GameObject> weaponList;
+
     public GameObject weapon;
     public Gun gun;
     public int currentGunID = 0;
@@ -67,7 +69,13 @@ public class PlayerMgr : MonoBehaviour
         //health = 100;
         //armor = 0;
 
-        SelectWeapon();
+        foreach(GameObject weapon in weaponList)
+        {
+            weapon.SetActive(false);
+        }
+
+        weaponList[0].SetActive(true);
+        gun = weaponList[0].GetComponent<Gun>();
 
         maxHealth = 100;
         maxArmor = 100;
@@ -78,10 +86,9 @@ public class PlayerMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         /*----- Y-axis Movement -----*/
         // Check if you land on the ground
-        if(Physics.Raycast(playerBody.position, Vector3.down, distToGround + 0.1f) && velocity.y < 0)
+        if (Physics.Raycast(playerBody.position, Vector3.down, distToGround + 0.1f) && velocity.y < 0)
         {
             velocity.y = 0;
         }
@@ -185,23 +192,38 @@ public class PlayerMgr : MonoBehaviour
             gunElement.damage = (int)(gunElement.damage * 0.75f);
         }
     }
-
-    public void SelectWeapon()
+    
+    public void SelectNextWeapon()
     {
-        int i = 0;
-        foreach(Transform weaponObject in weapon.transform)
-        {
-            if(i == currentGunID)
-            {
-                weaponObject.gameObject.SetActive(true);
-                gun = weaponObject.GetComponent<Gun>();
-            }
-            else
-            {
-                weaponObject.gameObject.SetActive(false);
-            }
+        weaponList[currentGunID].SetActive(false);
 
-            i++;
+        if((currentGunID + 1) >= weaponList.Count)
+        {
+            currentGunID = 0;
         }
+        else
+        {
+            currentGunID++;
+        }
+
+        weaponList[currentGunID].gameObject.SetActive(true);
+        gun = weaponList[currentGunID].GetComponent<Gun>();
+    }
+
+    public void SelectPreviousWeapon()
+    {
+        weaponList[currentGunID].SetActive(false);
+
+        if((currentGunID - 1) < 0)
+        {
+            currentGunID = weaponList.Count - 1;
+        }
+        else
+        {
+            currentGunID--;
+        }
+
+        weaponList[currentGunID].gameObject.SetActive(true);
+        gun = weaponList[currentGunID].GetComponent<Gun>();
     }
 }

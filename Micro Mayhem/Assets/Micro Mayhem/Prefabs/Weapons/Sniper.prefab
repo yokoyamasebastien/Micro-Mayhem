@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2593725031726762912
 Transform:
   m_ObjectHideFlags: 0
@@ -865,10 +865,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4924834a7e4ab1948929b930bbda6e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 400
-  timeBetweenShooting: 0.1
-  spread: 0.06
-  range: 100
+  damage: 75
+  force: 0
+  timeBetweenShooting: 1
+  spread: 0.03
+  range: 400
   reloadTime: 2.5
   timeBetweenShots: 0
   magazineSize: 10
@@ -876,11 +877,15 @@ MonoBehaviour:
   allowButtonHold: 0
   bulletsLeft: 0
   bulletsShot: 0
+  hitscan: 1
+  type: 2
   shooting: 0
   readyToShoot: 0
   reloading: 0
   attackPoint: {fileID: 0}
   muzzleFlash: {fileID: 5277770567478968854}
+  gunshotSound: {fileID: 0}
+  reloadSound: {fileID: 0}
 --- !u!1 &2593725031726667670
 GameObject:
   m_ObjectHideFlags: 0

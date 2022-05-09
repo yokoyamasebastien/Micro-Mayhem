@@ -24,9 +24,7 @@ public class RunIncrease : Consumable
     {
         PlayerMgr.inst.runSpeed *= (1 + percentage);
 
-        //if (collectSound)
-        //AudioSource.PlayClipAtPoint(collectSound, transform.position
-        //collectEffect.Play();
+        AudioSource.PlayClipAtPoint(collectSound, transform.position);  // Play sound
 
         base.Collect(); // Delete this object
     }

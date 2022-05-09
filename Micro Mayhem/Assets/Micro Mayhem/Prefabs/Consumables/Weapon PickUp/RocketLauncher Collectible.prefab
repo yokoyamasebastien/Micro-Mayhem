@@ -72,9 +72,10 @@ GameObject:
   - component: {fileID: 327400873246894390}
   - component: {fileID: 3685337341457049235}
   - component: {fileID: 1495201126303617625}
-  - component: {fileID: 3571420013058386905}
+  - component: {fileID: 5588195001554444247}
+  - component: {fileID: 2772155867976755079}
   m_Layer: 0
-  m_Name: Rocket Launcher 1
+  m_Name: RocketLauncher Collectible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +149,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3571420013058386905
+--- !u!114 &5588195001554444247
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,25 +158,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1135181917830312844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4924834a7e4ab1948929b930bbda6e29, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f14a5ebe249b2645a411684e8fa09b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 90
-  timeBetweenShooting: 4
-  spread: 0
-  range: 100
-  reloadTime: 4
-  timeBetweenShots: 0
-  magazineSize: 4
-  bulletsPerTap: 1
-  allowButtonHold: 0
-  bulletsLeft: 0
-  bulletsShot: 0
-  shooting: 0
-  readyToShoot: 0
-  reloading: 0
-  attackPoint: {fileID: 0}
-  muzzleFlash: {fileID: 3825592644957443958}
+  rotate: 0
+  rotationSpeed: 0
+  collectSound: {fileID: 8300000, guid: 3ea02fcf9411b214684a83598ed37d73, type: 3}
+  prefab: {fileID: 1135181917830312844, guid: 53dadd1ca7e68be478b52a3a4859e60f, type: 3}
+  position: {x: 0, y: 0, z: 0}
+--- !u!65 &2772155867976755079
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135181917830312844}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.652757, y: 0.49504417, z: 1.1015651}
+  m_Center: {x: 0.0628705, y: 0.0000000016484929, z: 0.23636952}
 --- !u!1 &2924116000219638572
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,12 +520,6 @@ PrefabInstance:
 --- !u!4 &4010378523432779762 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 447969145919814906, guid: 93a162fc463d2d842a8c25e141618684,
-    type: 3}
-  m_PrefabInstance: {fileID: 3571420013442253576}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &3825592644957443958 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 326237923105789054, guid: 93a162fc463d2d842a8c25e141618684,
     type: 3}
   m_PrefabInstance: {fileID: 3571420013442253576}
   m_PrefabAsset: {fileID: 0}
