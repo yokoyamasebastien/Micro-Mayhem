@@ -29,7 +29,8 @@ public abstract class Enemy : MonoBehaviour
 
     [Header("Attack Attributes")]
     public int damage;
-    public float maxDistance;   // Max Distance that enemy can attack player from
+    public float maxDistance;
+    public float minDistance = 1f; // Max Distance that enemy can attack player from
 
     [Header("Enemy Audio")]
     public AudioClip enemyDeath;

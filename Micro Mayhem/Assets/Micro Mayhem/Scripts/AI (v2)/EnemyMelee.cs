@@ -11,6 +11,7 @@ using UnityEngine;
 
 public class EnemyMelee : Enemy
 {
+
     /*---------- Methods ----------*/
     // Start is called before the first frame update
     new void Start()
@@ -60,6 +61,7 @@ public class EnemyMelee : Enemy
 
         if (AudioMgr.inst.hitTimer <= 0)
         {
+            AudioMgr.inst.PlayMeleeFire(gameObject);
             PlayerMgr.inst.TakeDamage(damage);
             Debug.Log("Melee Hit");
             AudioMgr.inst.hitTimer = 1f;
@@ -68,12 +70,13 @@ public class EnemyMelee : Enemy
 
     public new void Move()
     {
-        angle = Mathf.Atan2(player.transform.position.x, player.transform.position.z) * Mathf.Rad2Deg;
-        eulerAngleVelocity = new Vector3(0, angle, 0);
-        deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime);
-        enemyRB.MoveRotation(enemyRB.rotation * deltaRotation);
-        Vector3 direction = (player.transform.position - transform.position).normalized;
-        enemyRB.MovePosition(transform.position + direction * speed * Time.deltaTime);
-        Debug.DrawLine(transform.position, Vector3.forward, Color.black);
+            angle = Mathf.Atan2(player.transform.position.x, player.transform.position.z) * Mathf.Rad2Deg;
+            eulerAngleVelocity = new Vector3(0, angle, 0);
+            deltaRotation = Quaternion.Euler(eulerAngleVelocity * Time.deltaTime);
+            enemyRB.MoveRotation(enemyRB.rotation * deltaRotation);
+            Vector3 direction = (player.transform.position - transform.position).normalized;
+            enemyRB.MovePosition(transform.position + direction * speed * Time.deltaTime);
+            Debug.DrawLine(transform.position, Vector3.forward, Color.black);
+        
     }
 }

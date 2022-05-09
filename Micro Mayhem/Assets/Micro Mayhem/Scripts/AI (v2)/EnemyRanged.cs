@@ -16,6 +16,7 @@ public class EnemyRanged : Enemy
     [Header("Attack-Related Attributes")]
     RaycastHit hit;
 
+    public ParticleSystem enemyMuzzleFlash;
 
     /*---------- Methods ----------*/
     // Start is called before the first frame update
@@ -80,6 +81,8 @@ public class EnemyRanged : Enemy
 
         if (AudioMgr.inst.hitTimer <= 0)
         {
+            enemyMuzzleFlash.Play();
+            AudioMgr.inst.PlayRangedFire(gameObject);
             if (Physics.Raycast(enemyRB.position, transform.TransformDirection(Vector3.forward), out hit))
             {
                 if (hit.collider.tag == "Player")

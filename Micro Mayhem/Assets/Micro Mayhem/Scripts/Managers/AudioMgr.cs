@@ -43,6 +43,10 @@ public class AudioMgr : MonoBehaviour
     [Header("Player SFX")]
     public AudioClip playerDamageEffect;
 
+    [Header("Enemy SFX")]
+    public AudioClip rangedShotEffect;
+    public AudioClip meleeShotEffect;
+
    
 
     /*---------- Methods ----------*/
@@ -110,5 +114,15 @@ public class AudioMgr : MonoBehaviour
     public void PlayDamageSound()
     {
         AudioSource.PlayClipAtPoint(playerDamageEffect, PlayerMgr.inst.player.transform.position, 3f);
+    }
+
+    public void PlayRangedFire(GameObject rangedEnemy)
+    {
+        AudioSource.PlayClipAtPoint(rangedShotEffect, rangedEnemy.transform.position, 3f);
+    }
+
+    public void PlayMeleeFire(GameObject meleeEnemy)
+    {
+        AudioSource.PlayClipAtPoint(meleeShotEffect, meleeEnemy.transform.position, 3f);
     }
 }
