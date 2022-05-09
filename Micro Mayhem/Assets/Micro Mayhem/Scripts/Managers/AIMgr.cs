@@ -47,6 +47,9 @@ public class AIMgr : MonoBehaviour
         float minDist = 0; // Minimum distance enemies must spawn from player
         float maxDist = 40;    // Maximum distance enemies can spawn from player
 
+        meleePrefab.health *= (int)(1 + (0.1f * GameMgr.inst.waveNumber));
+        rangedPrefab.health *= (int)(1 + (0.1f * GameMgr.inst.waveNumber));
+
         for (int i = 0; i < 5; i++) //melee
         {
             //instantiate object in random range
