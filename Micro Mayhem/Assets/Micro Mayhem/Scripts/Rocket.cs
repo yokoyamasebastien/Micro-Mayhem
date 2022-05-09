@@ -20,12 +20,14 @@ public class Rocket : MonoBehaviour
             
             if (rb != null)
             {
-                    enemy.TakeDamage(100);
+                    //enemy.TakeDamage(100);
                     rb.AddExplosionForce(explosionForce, transform.position, blastRadius);
                     //Damage for rocketlauncher is hardcoded, should find a way to fix this eventually. Cannot access gun script from here
             }
         }
+        Debug.Log("Test 1");
         Destroy(gameObject);
+        Debug.Log("Test 2");
     }
 
     // Update is called once per frame

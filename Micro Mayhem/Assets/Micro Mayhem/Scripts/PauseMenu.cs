@@ -39,6 +39,7 @@ public class PauseMenu : MonoBehaviour
     void Resume()
     {
         pauseMenuUI.SetActive(false);
+        //PlayerMgr.inst.weapon.transform.gameObject.SetActive(false);
         Time.timeScale = 1f;
         UIMgr.inst.playerHealth.enabled = true;
         UIMgr.inst.playerArmor.enabled = true;
@@ -52,6 +53,7 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         pauseMenuUI.SetActive(true);
+        //PlayerMgr.inst.weapon.transform.gameObject.SetActive(false);
         Time.timeScale = 0f;
         UIMgr.inst.playerHealth.enabled = false;
         UIMgr.inst.playerArmor.enabled = false;
