@@ -52,7 +52,12 @@ public abstract class Enemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Move();
+      
+    }
+
+    private void Update()
+    {
+        
     }
 
     /* Move Method

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45038038, g: 0.500396, b: 0.57525057, a: 1}
+  m_IndirectSpecularColor: {r: 0.45038086, g: 0.5003962, b: 0.575251, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6307,6 +6307,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2593725032869022841, guid: a948e65505a46fd43bb160e9874685c7,
         type: 3}
+      propertyPath: reloadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 6f99ed1e5a97d724c8a3a64b1a1a348b, type: 3}
+    - target: {fileID: 2593725032869022841, guid: a948e65505a46fd43bb160e9874685c7,
+        type: 3}
       propertyPath: gunshotSound
       value: 
       objectReference: {fileID: 8300000, guid: f2c85efe0bf70b3449a1dbf302c6840e, type: 3}
@@ -8821,6 +8826,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket Launcher
       objectReference: {fileID: 0}
+    - target: {fileID: 3571420013058386905, guid: 53dadd1ca7e68be478b52a3a4859e60f,
+        type: 3}
+      propertyPath: reloadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c3430338b7987524d96ce1f63db280cd, type: 3}
     - target: {fileID: 3688320020300116401, guid: 53dadd1ca7e68be478b52a3a4859e60f,
         type: 3}
       propertyPath: playOnAwake

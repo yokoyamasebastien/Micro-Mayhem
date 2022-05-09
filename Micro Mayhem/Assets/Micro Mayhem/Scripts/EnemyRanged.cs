@@ -52,6 +52,11 @@ public class EnemyRanged : Enemy
 
     void FixedUpdate()
     {
+        if (enemyBody.position.y <= 0)
+        {
+            TakeDamage(1000);
+        }
+
         //Ranged unit constantly adjusts to look at player
         angle = Mathf.Atan2(player.transform.position.x, player.transform.position.z) * Mathf.Rad2Deg;
         eulerAngleVelocity = new Vector3(0, angle, 0);
