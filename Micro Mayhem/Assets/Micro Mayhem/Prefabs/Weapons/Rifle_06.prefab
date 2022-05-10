@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 8064573915573362809}
   m_Layer: 0
   m_Name: Rifle_06
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -381,7 +381,7 @@ MonoBehaviour:
   timeBetweenShooting: 0.1
   spread: 0.025
   range: 100
-  reloadTime: 3
+  reloadTime: 2
   timeBetweenShots: 0
   magazineSize: 30
   bulletsPerTap: 1

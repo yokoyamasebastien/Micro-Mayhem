@@ -37,8 +37,8 @@ public class PlayerMgr : MonoBehaviour
 
     public Vector3 velocity;
     
-    float shrinkDelta = (float)0.06;
-    float scaleValue = 1;
+    float shrinkDelta = (float)0.08;
+    public float scaleValue = 1;
 
     [Header("Player Attributes")]
     public int health;
@@ -179,18 +179,12 @@ public class PlayerMgr : MonoBehaviour
         //Shrink player
         scaleValue -= shrinkDelta;
         player.transform.localScale = new Vector3(scaleValue, scaleValue, scaleValue);
-    }
+        distToGround = playerCollider.height / 2;
 
-    /*ReduceWeaponDamage Method
-     * Reduces damage of all weapons by 25%
-     */
-    public void ReduceWeaponDamage()
-    {
-        foreach (Transform weaponObject in weapon.transform)
-        {
-            Gun gunElement = weaponObject.GetComponent<Gun>();
-            gunElement.damage = (int)(gunElement.damage * 0.75f);
-        }
+        // Adjust movement
+        jumpHeight *= scaleValue;
+        walkSpeed *= scaleValue;
+        runSpeed *= scaleValue;
     }
     
     public void SelectNextWeapon()

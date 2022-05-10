@@ -8,7 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor.Animations;
+using UnityEngine.Animations;
 
 public class GameMgr : MonoBehaviour
 {
@@ -22,12 +22,15 @@ public class GameMgr : MonoBehaviour
 
     /*---------- Properties ----------*/
     [Header("Game Attributes")]
-    public int waveNumber = 1;
+    public int waveNumber;
 
     [Header("Consumable Assets")]
     public GameObject healthPack;
     public GameObject armorPack;
-    public GameObject weaponUpgrade;
+
+    public List<GameObject> upgrades;
+    public List<GameObject> weapons;
+    int weaponsIndex = 0;
 
     public int consumableCount;
 
@@ -45,14 +48,12 @@ public class GameMgr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // for (int i = 0; i < GameMgr.inst.gunList.Count; i++)
-        //{
-          //  gunList[i].
-       // }
+        AIMgr.inst.SpawnEnemies();
+        waveNumber = 1;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         // If all enemies are dead, go to next wave
         if (AIMgr.inst.enemyCount == 0)
@@ -72,10 +73,19 @@ public class GameMgr : MonoBehaviour
      */
     public void RoundEnd()
     {
+        if(waveNumber % 2 == 0)
+        {
+            SpawnWeapon();
+        }
+
         SpawnConsumables();
+        SpawnUpgrade();
         waveNumber++;
-        PlayerMgr.inst.ShrinkPlayer();
-        PlayerMgr.inst.ReduceWeaponDamage();
+
+        if (PlayerMgr.inst.scaleValue >= 0.20) {
+            PlayerMgr.inst.ShrinkPlayer();
+        }
+
         ConfettiSpawn();
     }
 
@@ -104,6 +114,25 @@ public class GameMgr : MonoBehaviour
         if (armorPackExist == null) { Instantiate(armorPack, new Vector3(-39, 9, 14), Quaternion.identity); }
     }
 
+    public void SpawnUpgrade()
+    {
+        int index = Random.Range(0, (upgrades.Count - 1));
+        GameObject upgrade = upgrades[index];
+
+        float randX = Random.Range(PlayerMgr.inst.player.transform.position.x - 10f, PlayerMgr.inst.player.transform.position.x + 10f);
+        float randZ = Random.Range(PlayerMgr.inst.player.transform.position.z - 10f, PlayerMgr.inst.player.transform.position.z + 10f);
+        Vector3 location = new Vector3(randX, 1f, randZ);
+
+        Instantiate(upgrade, location, Quaternion.identity);
+    }
+
+    public void SpawnWeapon()
+    {
+        GameObject weapon = weapons[weaponsIndex];
+
+        Instantiate(weapon, new Vector3(0, 1, 0), Quaternion.identity);
+        weaponsIndex++;
+    }
 
     /* EndGame Method
      When the player dies, the game over screen is loaded. */

@@ -130,6 +130,8 @@ public class Gun : MonoBehaviour
 
     public void Reload()
     {
+        PlayerMgr.inst.weaponList[PlayerMgr.inst.currentGunID].SetActive(false);
+
         AudioMgr.inst.PlayGunReload();
         reloading = true;
         Invoke("ReloadFinished", reloadTime);
@@ -139,5 +141,6 @@ public class Gun : MonoBehaviour
     {
         bulletsLeft = magazineSize;
         reloading = false;
+        PlayerMgr.inst.weaponList[PlayerMgr.inst.currentGunID].SetActive(true);
     }
 }
